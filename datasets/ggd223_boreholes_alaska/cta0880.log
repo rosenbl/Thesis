@@ -1,0 +1,32 @@
+ << U.S. Geological Survey Borehole Temperature Log - Alaska >>
+  
+ Site:             CTA 
+ Log Date:         80AUG06 
+ Type of Log:      thermistor string (frozen in place) 
+ Type of Sensor:   thermistors
+ Measuring Device: digital multimeter
+ Deconvolved:      N/A
+  
+  Z   = measured depth (m)
+  TVD = true vertical depth (m)
+  T   = temperature (C)
+  
+        Z      TVD       T
+     16.46   999.99   -4.110
+     31.70   999.99   -4.582
+     46.94   999.99   -4.290
+     56.08   999.99   -4.291
+     62.18   999.99   -4.025
+     77.42   999.99   -6.410
+     78.94   999.99   -4.003
+     92.66   999.99   -4.224
+    101.80   999.99   -4.254
+    107.90   999.99   -3.183
+    123.14   999.99   -3.898
+    124.66   999.99   -3.210
+    138.38   999.99   -3.020
+    147.52   999.99   -7.150
+    153.62   999.99   -2.288
+    162.76   999.99   -3.986
+    168.86   999.99   -4.271
+    178.00   999.99   -2.812

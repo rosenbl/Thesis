@@ -1,0 +1,37 @@
+ << U.S. Geological Survey Borehole Temperature Log - Alaska >>
+  
+ Site:             P08 
+ Log Date:         79OCT06 
+ Type of Log:      incremental 
+ Type of Sensor:   thermistor network (custom)
+ Measuring Device: digital multimeter
+ Deconvolved:      N/A
+  
+  Z   = measured depth (m)
+  TVD = true vertical depth (m)
+  T   = temperature (C)
+  
+        Z      TVD       T
+     11.06   999.99    2.331
+     13.81   999.99    2.316
+     16.58   999.99    2.309
+     19.32   999.99    2.304
+     22.10   999.99    2.298
+     24.87   999.99    2.295
+     27.61   999.99    2.293
+     30.39   999.99    2.293
+     33.16   999.99    2.300
+     35.91   999.99    2.313
+     38.68   999.99    2.336
+     41.42   999.99    2.330
+     44.20   999.99    2.220
+     46.97   999.99    2.227
+     49.71   999.99    2.232
+     52.49   999.99    2.241
+     55.26   999.99    2.256
+     58.00   999.99    2.274
+     60.78   999.99    2.299
+     63.52   999.99    2.314
+     66.29   999.99    2.340
+     69.07   999.99    2.374
+     70.44   999.99    2.548

@@ -1,0 +1,38 @@
+ << U.S. Geological Survey Borehole Temperature Log - Alaska >>
+  
+ Site:             CTC 
+ Log Date:         63MAY09 
+ Type of Log:      thermistor string (frozen in place) 
+ Type of Sensor:   thermistors
+ Measuring Device: Wheatstone Bridge
+ Deconvolved:      N/A
+  
+  Z   = measured depth (m)
+  TVD = true vertical depth (m)
+  T   = temperature (C)
+  
+        Z      TVD       T
+      1.52   999.99   -8.590
+      3.05   999.99   -9.650
+      4.57   999.99   -8.850
+      9.14   999.99   -5.830
+     18.29   999.99   -5.280
+     27.43   999.99   -5.010
+     42.67   999.99   -4.590
+     57.91   999.99   -4.390
+     73.15   999.99   -4.000
+     88.39   999.99   -3.550
+    103.63   999.99   -3.320
+    118.87   999.99   -2.960
+    134.11   999.99   -2.780
+    149.35   999.99   -2.490
+    164.59   999.99   -2.190
+    179.83   999.99   -1.900
+    195.07   999.99   -1.630
+    210.31   999.99   -1.390
+    225.55   999.99   -1.160
+    240.79   999.99    -.810
+    256.03   999.99    -.590
+    271.27   999.99    -.310
+    286.51   999.99    -.090
+    301.75   999.99     .240

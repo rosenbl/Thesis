@@ -1,0 +1,104 @@
+____________________________________________________________________ 
+Table 1: Permafrost depths from wells with multiple temperature logs. 
+Elevations and pf_depths are in meters.
+
+
+Well Designation   Code Latitude      Longitude      Elev pf_depth
+__________________ ____ _____________ ______________ ____ ________ 
+Atigaru            ATI  70 33 22.03 N 151 43 01.85 W   2  405
+Awuna              AWUN 69 09 11.58 N 158 01 21.27 W 336  295
+Canning River A-1   CNR 69 36 00 N    146 21 30 W    282  280 
+Drew Point          DRP 70 52 47.14 N 153 53 59.93 W   5  324
+Echooka #1          EB1 69 23 57 N    148 16 03 W    200  280
+East Simpson #1     ESN 70 55 04.01 N 154 37 04.75 W   4  370
+East Teshepuk       ETK 70 34 11.66 N 152 56 36.90 W   2  262
+West Fish Creek #1  FCK 70 19 35.99 N 152 03 38.03 W  27  268 
+Ikpikpuk            IKP 70 27 19.68 N 154 19 52.78 W  10  347
+J.W. Dalton         JWD 70 55 13.79 N 153 08 15.10 W   6  411
+Kugrua              KAG 70 35 13.28 N 158 39 43.26 W  20  287
+Kuyanak             KUY 70 55 53.48 N 156 03 53.08 W   3  328
+Lisburne            LBN 68 29 05.44 N 155 41 35.51 W 559  295
+Lupine Creek        LUP 69 06 04.24 N 148 37 06.83 W 520  238
+North Inigok       NING 70 15 27.32 N 152 45 57.53 W  41  294
+North Kalikpik      NKP 70 30 33.02 N 152 22 04.17 W   5  213
+BP 33-12-13         PBA 70 21 22 N    148 50 06 W      9  662
+BP 04-11-13         PBB 70 19 48 N    148 50 48 W     11  640
+BP 19-10-15         PBC 70 12 42 N    148 24 45 W     11  584
+ARCO NPBS #1        PBE 70 22 35 N    148 31 30 W      2  604
+BP 08-11-13         PBF 70 19 07 N    148 54 35 W      8  619
+BP 31-11-14         PBG 70 16 06 N    148 40 24 W     10  649
+Peard Bay           PEA 70 42 56.32 N 159 00 02.52 W  23  310
+Seabee              SBE 69 22 48.52 N 152 10 31.29 W  89  309
+South Meade         SME 70 36 53.92 N 156 53 23.60 W  12  201
+Tunalik             TLK 70 12 21.45 N 161 04 09.16 W  26  296
+Tulageak            TUL 71 11 21.62 N 155 44 00.82 W   3  304
+West Dease          WDS 71 09 32.65 N 155 37 45.19 W   2  282
+____________________________________________________________________
+
+
+Table 2: Permafrost depths from wells with a single temperature log.
+
+Well Designation    Code  Latitude     Longitude      Elev  pf_depth
+___________________ _____ ____________ ______________ ____ ________
+Confusion Creek #2  CCB   68 22 18 N    152 04 06 W    823  139 
+Prudhoe Bay C-19    CN19  70 29 24 N    149 31 24 W      6  530 
+Prudhoe Bay D-2A    CND2  70 29 06 N    149 26 00 W      7  536 
+Chariot Charlie     CTC   68 06 00 N    165 46 00 W      -  288
+Chariot Dog         CTD   68 06 24 N    165 44 06 W      -  360
+East Bay State #1   EBS   70 18 38 N    148 18 58 W      5  627 
+Mobil 28243         MOB2  70 18 12 N    149 25 00 W     19  575
+N. Highland State   NHST  70 17 30 N    149 13 07 W     16  577 
+BP 11-11-13         PBH   70 20 05 N    148 46 01 W      6  637
+BP 12-11-13         PBI   70 20 07 N    148 45 52 W      6  635
+BP 31-10-16         PBL   70 10 56 N    148 09 29 W     14  605
+BP 27-11-14         PBM   70 16 42 N    148 33 56 W      6  619
+BP Kuparuk #1       PBO   69 17 48 N    150 48 48 W    189  297
+Simpson Core #13    S04   70 58 58.9 N  154 39 35 W      7  319 
+West Sak River #11  WK11  70 21 25 N    149 59 27 W     19  470 
+West Sak River #14  WK14  70 17 36 N    149 57 06 W     40  464 
+West Sak River #17  WK17  70 26 48 N    149 43 12 W     18  550 
+West Sak River #101 WK101 70 17 30 N    149 30 00 W     19  519
+West Sak State #1   WSS1  70 20 21 N    149 32 10 W     18  551
+______________________________________________________
+These depths have not been corrected for the drilling disturbance due to
+lack of information regarding the drilling duration.
+
+
+Citations:
+
+Lachenbruch, A.H. and M.C. Brewer (1959): Dissipation of the
+temperature effect of drilling a well in Arctic Alaska, U.S. Geol. Surv.
+Bull., 1083-C, 73-109.
+
+Lachenbruch, A.H., J.H. Sass, B.V. Marshall, and T.H. Moses, Jr.
+(1982): Permafrost, heat flow, and the geothermal regime at Prudhoe Bay,
+Alaska, J. Geophys. Res., 87, 9301-9316.
+
+Lachenbruch, A.H., J.H. Sass, L.A. Lawver, M.C. Brewer, B.V.
+Marshall, R.J. Munroe, J.P. Kennelly, Jr., S.P. Galanis, and T.H. Moses,
+Jr. (1987): Temperature and depth of permafrost on the Alaskan arctic
+slope, in Tailleur, I. and P. Weimer, eds., Alaskan North Slope Geology:
+Bakersfield, Society of Economic Paleotologists and Mineralogists, Pacific
+Section, v. 2, 545-558.
+
+Gary Clow
+U.S. Geological Survey
+Climate Program
+Box 25046, MS 980
+Denver Federal Center
+Denver, CO 80225
+303-236-5509
+
+SEE NEW HOME FAX NUMBER:
+
+MAILING ADDRESS:
+Jerry Brown                         TELEPHONE/FAX: 508 457 4982
+P.O. Box 7
+Woods Hole MA 02543  USA            E-mail: jerrybrown@igc.apc.org
+
+For EXPRESS deliveries ONLY use street address: 163 Racing Beach Avenue,
+Falmouth MA 02540.
+
+Browse the IPA WWW home page: http://www.geodata.soton.ac.uk/ipa
+
+

@@ -1,0 +1,72 @@
+>Dataset: Deep permafrost depths derived from borehole temperature
+measurements.
+
+>Spatial Coverage: Alaska (Arctic coastal plain and the Brooks Range)
+
+>Institution: U.S. Geological Survey
+
+>Contact: Gary Clow; U.S. Geological Survey, Box 25046, MS980,
+Denver CO 80225 303-236-5509; email= clow@usgs.gov
+
+>Data collection: The borehole temperature measurements from which
+the permafrost depths were derived were collected between 1949 and 1991
+under the direction of Art Lachenbruch and Max Brewer of the U.S.
+Geological Survey. In each case, the temperature sensor consisted of a
+thermistor, or array of thermistors. The measurements were made
+predominantly within fluid-filled boreholes; a few of the early logs (eg.
+sites CTC and CTD) were acquired from thermistor-strings frozen in place.
+The technique used to acquire a temperature reading in a fluid-filled hole
+has evolved considerably over the years. The early logs were obtained by
+letting the temperature sensor equilibrate at fixed depths and then
+measuring the sensor's resistance with a Wheatstone Bridge or commercial
+Digital Multimeter (DMM), when they became available. Later logs were made
+by measuring the sensor's resistance with a DMM while the sensor descended
+into the hole at a fixed rate, generally about 10 cm/s. Once obtained, the
+resistance measurements were converted to temperature using calibration
+constants derived at the USGS's temperature calibration facility.
+
+>Analysis: Temperatures in the vicinity of a deep borehole are
+disturbed by various drilling processes, the most important of which is the
+circulation of relatively warm fluid throughout the hole during drilling.
+This "drilling disturbance" must be accounted for when determining
+permafrost depth. The method we use to determine the permafrost depth at a
+well site depends on whether multiple temperature logs are available. 1) If
+multiple temperature logs from a well are available, the information in the
+logs is used in conjunction with a drilling disturbance model (see
+Lachenbruch and Brewer [1959]) to determine the undisturbed temperature
+profile in the vicinity of the hole. The permafrost depth is then given by
+the depth where the undisturbed temperature profile is 0 C. 2) For holes
+where only a single temperature log is available, the 0 C depth near the
+well at the time of the log is determined from the measured temperature
+profile. The true permafrost depth is deeper due to the effects of the
+drilling disturbance on the measured log. Given the drilling duration and
+the amount of time elapsed between hole completion and the acquisition of
+the log, the remaining drilling disturbance is estimated from the behavior
+of nearby wells drilled in similar materials for which we have multiple
+logs. From this estimate, the 0 C depth from the single temperature log is
+"corrected" to determine the true permafrost depth.
+
+>References: The permafrost depths presented here represent an
+update of earlier work published by Lachenbruch et al. [1982] and
+Lachenbruch et al. [1987]. The new depths utilize temperature logs acquired
+after 1987; additional cleaning has also been performed on the earlier
+logs. The new work has not yet been published; contact Gary Clow for
+further information.
+
+Citations:
+
+Lachenbruch, A.H. and M.C. Brewer (1959): Dissipation of the
+temperature effect of drilling a well in Arctic Alaska, U.S. Geol. Surv.
+Bull., 1083-C, 73-109.
+
+Lachenbruch, A.H., J.H. Sass, B.V. Marshall, and T.H. Moses, Jr.
+(1982): Permafrost, heat flow, and the geothermal regime at Prudhoe Bay,
+Alaska, J. Geophys. Res., 87, 9301-9316.
+
+Lachenbruch, A.H., J.H. Sass, L.A. Lawver, M.C. Brewer, B.V.
+Marshall, R.J. Munroe, J.P. Kennelly, Jr., S.P. Galanis, and T.H. Moses,
+Jr. (1987): Temperature and depth of permafrost on the Alaskan arctic
+slope, in Tailleur, I. and P. Weimer, eds., Alaskan North Slope Geology:
+Bakersfield, Society of Economic Paleotologists and Mineralogists, Pacific
+Section, v. 2, 545-558.
+
