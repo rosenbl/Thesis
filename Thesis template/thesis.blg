@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+The style file: APA/apa-good.bst
+Database file #1: thesis.bib
+I was expecting a `,' or a `}'---line 27 of file thesis.bib
+ : 
+ : @ARTICLE{hertzmann:2000,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You've used 11 entries,
+            2804 wiz_defined-function locations,
+            660 strings with 6224 characters,
+and the built_in function-call counts, 5582 in all, are:
+= -- 465
+> -- 178
+< -- 13
++ -- 69
+- -- 56
+* -- 363
+:= -- 891
+add.period$ -- 33
+call.type$ -- 11
+change.case$ -- 72
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 422
+empty$ -- 442
+format.name$ -- 86
+if$ -- 1116
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 82
+newline$ -- 62
+num.names$ -- 46
+pop$ -- 175
+preamble$ -- 1
+purify$ -- 62
+quote$ -- 0
+skip$ -- 193
+stack$ -- 0
+substring$ -- 232
+swap$ -- 210
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 87
+warning$ -- 0
+while$ -- 44
+width$ -- 0
+write$ -- 144
+(There was 1 error message)
