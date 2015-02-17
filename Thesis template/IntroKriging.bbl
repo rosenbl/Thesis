@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{bivand:2008}
+Roger~S. Bivand, Edzer~J. Pebesma, and Virgilio G\'omez-Rubio.
+\newblock {\em Applied Spatial Data Analysis with R}.
+\newblock Springer, New York, NY, 2008.
+
+\bibitem{cressie:1993}
+Noel~A.C. Cressie.
+\newblock {\em Statistics for Spatial Data}.
+\newblock John Wiley and Sons, Inc, New York, NY, 1993.
+
+\bibitem{gelfand:2010}
+Alan~E. Gelfand, Peter~J. Diggle, Montserrat Fuentes, and Peter Guttorp.
+\newblock {\em Handbook of Spatial Statistics}.
+\newblock Chapman and Hall, Boca Raton, FL, 2010.
+
+\bibitem{stein:1999}
+Michael Stein.
+\newblock {\em Interpolation of Spatial Data}.
+\newblock Springer, New York, NY, 1999.
+
+\end{thebibliography}
