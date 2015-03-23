@@ -1,0 +1,15 @@
+2015/03/23
+
+A big improvement over last time! Good job cleaning stuff up.  A few notes:
+
+- I think you can improve the description of the variogram at the beginning of
+  Chapter 2.  For example, make explicit what e hat is.  Some kind of graphical
+  illustration will help with this.  Maybe an example involving a small number of
+  points?  Let that time you explained to me on the blackboard how it works
+  be your guide
+- You use the word "all over the place" on page 2.  Use more concise terms.
+- You never defined bold little x
+- In your quadratic equation invovling mu(s, beta) explain that why this form allows
+  you to loosen the restriction of modelling lat/long effects as independent
+- Section 4:  What happened to beta?  It was in Section 3
+- Section 4: Can you give some intuition behind lambda?
