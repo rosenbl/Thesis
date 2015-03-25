@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 MAR 2015 22:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  25 MAR 2015 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -369,49 +369,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--35
  []
 
 [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-
-Package amsmath Warning: Foreign command \over;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 39.
-
-
-Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 39.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 42.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 72.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
+ []
+
+<semivariogram.png, id=21, 415.5525pt x 369.38pt>
+File: semivariogram.png Graphic file (type png)
+ <use semivariogram.png>
+Package pdftex.def Info: semivariogram.png used on input line 76.
+(pdftex.def)             Requested size: 334.60422pt x 297.43764pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Overfull \vbox (1.58669pt too high) has occurred while \output is active []
 
- []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
-[4] (./IntroKriging.bbl) [5] (./IntroKriging.aux) ) 
+[4 <./semivariogram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+[5] (./IntroKriging.bbl) [6] (./IntroKriging.aux) ) 
 Here is how much of TeX's memory you used:
- 4065 strings out of 493117
- 53099 string characters out of 6135433
- 124819 words of memory out of 5000000
- 7285 multiletter control sequences out of 15000+600000
+ 4073 strings out of 493117
+ 53232 string characters out of 6135433
+ 126827 words of memory out of 5000000
+ 7291 multiletter control sequences out of 15000+600000
  13422 words of font info for 55 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 38i,9n,32p,1368b,192s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,9n,32p,1385b,225s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf
@@ -430,10 +448,10 @@ ublic/amsfonts/cm/cmr9.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti12.pfb>
-Output written on IntroKriging.pdf (5 pages, 189879 bytes).
+Output written on IntroKriging.pdf (6 pages, 199823 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 94 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
