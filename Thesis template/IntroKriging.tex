@@ -95,6 +95,8 @@ Fitting a parametric model to the empirical variogram gives a convenient equatio
 \item Evenness: $\gamma(-\bold{h}) = \gamma(\bold{h}$) for all $\bold{h}$
 \item Conditional negative definiteness: $\sum_{i=1}^n \sum_{j=1}^n a_i a_j \gamma(x_i - x_j) \leq 0$ for all $n$, all $s_1, \dots, s_n$ and all $a_1, \dots, a_n$ such that $\sum_{i=1}^n a_i = 0$
 
+A crucial assumption is that a ``true'' semivariogram exists for the entire region. By modeling the empirical semivariogram and fitting it to a curve we are guessing at the underlying model that represents the entire process. In a way, this describes the entire study of statistics in general: using incomplete data to make an educated guess about the underlying, inherently unknowable, system and adjusting to the model to minimize inaccuracies.
+
 \end{enumerate}
 
 
