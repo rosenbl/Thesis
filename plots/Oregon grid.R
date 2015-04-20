@@ -3,7 +3,7 @@ library(ggplot2)
 library(SpatialEpi)
 library(geoR)
 library(dplyr)
-
+library(deldir)
 
 well_logs <- read.csv("well_logs.csv", header = TRUE)
 
@@ -56,7 +56,10 @@ grid <- unique(grid)
 
 grid <- mutate(grid, depth = well_logs$depth_first_water)
 
-
+dups <- !duplicatedxy(grid$x, grid$y)
+grid$dups <- dups
+grid <- filter(grid, dups==TRUE)
+grid <- select(grid, x, y, depth)
 
 
 # summary of data
@@ -73,9 +76,34 @@ grid$data <- grid$depth
 geogrid <- as.geodata(grid)
 geogrid$kappa <- 0.5
 geogrid$lambda <- 1
-geogrid$cov.model <- "matern"
+geogrid$cov.model <- "cubic"
 
 # run variogram, alter binning options to include 30 bins
-breaks <- seq(from = 0, to = 847, by = 847/29)
+breaks <- seq(from = 0, to = 755, by = 755/29)
 variogram <- variog(geogrid, breaks = breaks, option = "bin")
 plot(variogram, main = "Variogram")
+
+# fit model to empirical variogram
+fit <- variofit(variogram, ini.cov.pars=c(40000,225), cov.model="powered.exponential", fix.nugget=FALSE, max.dist=300)
+summary(fit)
+lines(fit)
+
+## kriging estimates
+
+# choose prediction regions based on coordinate mins/maxes
+loc <- expand.grid(seq(-10830, -10170, by=20), seq(4668, 5138, by=20))
+
+# kriging step, provide sigmasq/phi vector from fitted variogram
+kc <- krige.conv(geogrid, loc=loc, krige=krige.control(cov.pars=c(40448.6829, 229.4953)))
+
+# create prediction map
+image(kc)
+
+# and variance map
+image(kc, val=sqrt(kc$krige.var))
+
+
+
+
+
+
