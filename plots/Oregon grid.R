@@ -38,6 +38,16 @@ ggmap(Map,
              #color = "red",
              aes(x = longitude, y = latitude, color = well_logs$depth_first_water))
 
+ggmap(Map,
+      extent = "panel",
+      ylab = "Latitude",
+      xlab = "Longitude",
+      legend = "right") +
+  geom_point(data = well_logs, 
+             #color = "red",
+             aes(x = longitude, y = latitude, color = depth_first_water))
+
+
 
 # create dataframe with grid coordinates
 coordinates <- cbind(well_logs$longitude, well_logs$latitude)
@@ -103,7 +113,12 @@ image(kc)
 image(kc, val=sqrt(kc$krige.var))
 
 
-
+results <- data.frame(
+  long = loc$Var1,
+  lat = loc$Var2,
+  predict = kc$predict,
+  var = kc$krige.var
+  )
 
 
 
