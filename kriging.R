@@ -102,7 +102,11 @@ contour <- tile + geom_contour(data=results, aes(x,y, z=predict))
 contour
 
 # polygon plot
-gm + stat_contour(data=results, geom="polygon", bins=4, aes(x,y, z=predict, fill=..level..))
+poly <- gm + stat_contour(data=results, 
+                          geom="polygon", 
+                          bins=4, 
+                          aes(x,y, z=predict, fill=..level.., alpha = ..level..))
+poly + guides(alpha="none")
 
 # variance map
 gm + geom_tile(data=results, aes(x,y, alpha=0.7, fill=var)) + scale_fill_gradient(low="yellow", high="red")
