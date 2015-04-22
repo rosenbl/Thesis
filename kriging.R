@@ -5,8 +5,9 @@ library(geoR)
 library(dplyr)
 
 
-latlong <- read.csv("latlong2.csv")
+latlong <- read.csv("latlong.csv")
 grid <- read.csv("grid2.csv")
+oregonborder <- read.csv("oregonborder3.csv")
 
 Map <- get_map(location = "Oregon",
                color = "color", # or bw
@@ -41,9 +42,15 @@ breaks <- seq(from = 0, to = 300, by = 300/15)
 
 # make variogram
 variogram <- variog(geogrid, breaks = breaks, option = "bin")
+
 plot(variogram, main = "Variogram")
 
-variogram
+
+v.summary <- cbind(cbind(breaks[2:16]), variogram$v, variogram$n)
+colnames(v.summary) <- c("lag", "semi-variance", "# of pairs")
+
+v.summary
+plot(v.summary[,1], v.summary[,3], main="Lag distances", xlab="lag", ylab="# of pairs")
 
 # fit model
 fit <- variofit(variogram, 
@@ -58,21 +65,19 @@ lines(fit)
 # choose prediction regions based on coordinate mins/maxes
 summary(grid)
 
-loc <- expand.grid(seq(-10785, -10170, by=10), seq(4668, 5125, by=10))
+loc <- expand.grid(seq(-10885, -10070, by=10), seq(4668, 5200, by=10))
+
+border <- latlong2grid(oregonborder)
+
+ins <- locations.inside(loc, border)
 
 # kriging step, provide sigmasq/phi vector from fitted variogram
-kc <- krige.conv(geogrid, loc=loc, krige=krige.control(cov.pars=c(28048.6894, 254.8803)))
-
-# create prediction map
-image(kc)
-
-# and variance map
-image(kc, val=sqrt(kc$krige.var))
+krige <- krige.conv(geogrid, loc=ins, krige=krige.control(cov.pars=c(28048.6894, 254.8803)))
 
 
 resultsxy <- data.frame(
-  x = loc$Var1,
-  y = loc$Var2
+  x = ins$Var1,
+  y = ins$Var2
   )
 
 
@@ -81,8 +86,8 @@ resultslatlong <- grid2latlong(resultsxy)
 results <- data.frame(
   x = resultslatlong$x,
   y = resultslatlong$y,
-  predict = kc$predict,
-  var = kc$krige.var
+  predict = krige$predict,
+  var = krige$krige.var
 )
 
 # build the maps
@@ -106,7 +111,12 @@ poly <- gm + stat_contour(data=results,
                           geom="polygon", 
                           bins=4, 
                           aes(x,y, z=predict, fill=..level.., alpha = ..level..))
+
 poly + guides(alpha="none")
 
 # variance map
-gm + geom_tile(data=results, aes(x,y, alpha=0.7, fill=var)) + scale_fill_gradient(low="yellow", high="red")
+gm + geom_tile(data=results, 
+               aes(x,y, alpha=0.7, fill=var)) + scale_fill_gradient(low="yellow", high="red")
+
+# some more data visualization
+hist(latlong$depth, main="Depths", xlab="depth", ylab="frequency")
