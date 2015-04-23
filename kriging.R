@@ -99,7 +99,7 @@ gm + geom_point(data=results, aes(x,y, alpha=0.5))
 gm + geom_point(data=results, aes(x, y, alpha=0.7, color=predict))
 
 # tiled prediction map
-tile <- gm + geom_tile(data=results, aes(x, y, alpha=0.7, fill=predict))
+tile <- gm + geom_tile(data=results, alpha=0.5, aes(x, y, fill=predict))
 tile
 
 # with contour plot
@@ -115,8 +115,23 @@ poly <- gm + stat_contour(data=results,
 poly + guides(alpha="none")
 
 # variance map
-gm + geom_tile(data=results, 
-               aes(x,y, alpha=0.7, fill=var)) + scale_fill_gradient(low="yellow", high="red")
+gm + geom_tile(data=results, alpha=0.7,
+               aes(x,y, fill=var)) + scale_fill_gradient(low="yellow", high="red")
+
+# standard deviation map
+sd <- sqrt(results$var)
+
+gm + geom_tile(data=results, alpha=0.7, aes(x,y, fill=sd)) + scale_fill_gradient(low="yellow", high="red")
+
+# cropped variance map
+crop <- filter(results, x > -123.8) %>% filter(x < -117.3) %>% filter(y > 42.2) %>% filter(y < 45.5)
+
+gm + geom_tile(data=crop, alpha=0.7,
+               aes(x,y, fill=var)) + scale_fill_gradient(low="yellow", high="red")
+
+# cropped sd map
+sd <- sqrt(crop$var)
+gm + geom_tile(data=crop, alpha=0.7, aes(x,y, fill=cropsd)) + scale_fill_gradient(low="yellow", high="red")
 
 # some more data visualization
 hist(latlong$depth, main="Depths", xlab="depth", ylab="frequency")
