@@ -3,6 +3,7 @@ library(ggplot2)
 library(SpatialEpi)
 library(geoR)
 library(dplyr)
+library(knitr)
 
 
 latlong <- read.csv("latlong.csv")
@@ -36,7 +37,7 @@ summary(dists)
 geogrid <- as.geodata(grid)
 geogrid$kappa <- 0.5
 geogrid$lambda <- 1
-geogrid$cov.model <- "cubic"
+geogrid$cov.model <- "spherical"
 
 breaks <- seq(from = 0, to = 300, by = 300/15)
 
@@ -93,10 +94,10 @@ results <- data.frame(
 # build the maps
 
 # prediction points only
-gm + geom_point(data=results, aes(x,y, alpha=0.5))
+gm + geom_point(data=results, alpha=0.5, aes(x,y))
 
 # prediction points with predicted values
-gm + geom_point(data=results, aes(x, y, alpha=0.7, color=predict))
+gm + geom_point(data=results, alpha=0.7, aes(x, y, color=predict))
 
 # tiled prediction map
 tile <- gm + geom_tile(data=results, alpha=0.5, aes(x, y, fill=predict))
@@ -131,7 +132,7 @@ gm + geom_tile(data=crop, alpha=0.7,
 
 # cropped sd map
 sd <- sqrt(crop$var)
-gm + geom_tile(data=crop, alpha=0.7, aes(x,y, fill=cropsd)) + scale_fill_gradient(low="yellow", high="red")
+gm + geom_tile(data=crop, alpha=0.7, aes(x,y, fill=sd)) + scale_fill_gradient(low="yellow", high="red")
 
 # some more data visualization
 hist(latlong$depth, main="Depths", xlab="depth", ylab="frequency")

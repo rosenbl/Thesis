@@ -3,44 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: APA/apa-good.bst
 Database file #1: kriging.bib
-You've used 4 entries,
+You've used 10 entries,
             2804 wiz_defined-function locations,
-            604 strings with 5031 characters,
-and the built_in function-call counts, 1922 in all, are:
-= -- 138
-> -- 82
-< -- 2
-+ -- 31
-- -- 27
-* -- 134
-:= -- 325
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 25
-chr.to.int$ -- 4
-cite$ -- 4
-duplicate$ -- 138
-empty$ -- 158
-format.name$ -- 35
-if$ -- 374
+            646 strings with 6092 characters,
+and the built_in function-call counts, 5025 in all, are:
+= -- 387
+> -- 204
+< -- 7
++ -- 76
+- -- 66
+* -- 358
+:= -- 814
+add.period$ -- 33
+call.type$ -- 10
+change.case$ -- 72
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 377
+empty$ -- 388
+format.name$ -- 95
+if$ -- 971
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 33
-newline$ -- 27
-num.names$ -- 16
-pop$ -- 70
+missing$ -- 84
+newline$ -- 65
+num.names$ -- 42
+pop$ -- 179
 preamble$ -- 1
-purify$ -- 25
+purify$ -- 61
 quote$ -- 0
-skip$ -- 59
+skip$ -- 147
 stack$ -- 0
-substring$ -- 44
-swap$ -- 62
+substring$ -- 139
+swap$ -- 181
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
+type$ -- 75
 warning$ -- 0
-while$ -- 12
+while$ -- 33
 width$ -- 0
-write$ -- 54
+write$ -- 138

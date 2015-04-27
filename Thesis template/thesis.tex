@@ -190,7 +190,59 @@ A wide variety of data can be used for kriging, provided it meets a few necessar
 
 This thesis will analyze Oregon ground water depth using data from Oregon's Water Resources Department. The data itself is a collection of logs recorded by Oregon-bonded well drillers and includes such information as the drilling date, the depth of the well, the depth of the first occurrence of water, and flow rate. The Water Resources Department uses this data to monitor water quality throughout the state of Oregon. For the purposes of this thesis, the data represents a partial sampling from a mostly continuous supply of subterranean water. By applying kriging to the available sample, it is possible to make predictions for unsampled locations in Oregon. \\
 
+
+\subsection{The Data}
+
 Oregon's records contain nearly 500,000 wells in the state. Since the individual contractors are responsible for recording their own observations, much of the data is incomplete. Only a handful of the observations include the latitude and longitude coordinates necessary for spatial prediction. Of this subsample, a ten-year date window was selected for the sake of accuracy. \\
+
+In addition to this, a few other error-correction edits were made to the data. Several lat/long locations placed points off the coast and theses were removed from the sample. The presence of these points may indicate a larger trend of recording errors among inland points, but since determining this error would be nearly impossible, the recorded values were taken for face value in the initial stages. The kriging process, however, does give some options for accounting for error and this is explored later. \\
+
+Another edit made to the data was removing co-located points. Several points (n=15) had the same lat/long entries but different recorded depth values. While these points could be used to calculate the variogram's nugget effect, their relatively rare frequency taken with the already established recording errors found in the sample warranted their exclusion. 
+
+\begin{table}[h]
+
+	\centering
+	
+
+ \begin{tabular}{l|l|l}
+
+\hline
+ Longitude &       Latitude &     Depth\\
+\hline
+ Min.   :-124.5   & Min.   :42.00   & Min.   :   0.0  \\
+\hline
+ 1st Qu.:-123.2   & 1st Qu.:42.94   & 1st Qu.:  30.0  \\
+\hline
+ Median :-122.9   & Median :43.97   & Median :  82.0  \\
+\hline
+ Mean   :-122.1   & Mean   :43.81   & Mean   : 134.4  \\
+\hline
+ 3rd Qu.:-121.5   & 3rd Qu.:44.67   & 3rd Qu.: 172.0  \\
+\hline
+ Max.   :-116.9   & Max.   :46.23   & Max.   :1000.0  \\
+\hline
+
+
+
+\end{tabular}
+\label{data}
+\caption{Summary of groundwater data variables}
+
+\end{table}
+
+Table \ref{data} gives a few preliminary stats on the data. The longitude and latitude variables correspond loosely with Oregon's bounding perimeter, and the depth values range from zero to 1000 feet. Figure \ref{depths} shows the frequency of recorded depths across all observations. Of particular note is the high frequency of shallower ( $<100$ feet) wells across the state. \\
+
+Finally, Figure \ref{points} plots all observations over a map of Oregon, with color corresponding to depth. The clustering along the West side of the state is due to statewide population densities, with more Oregon residents living near the I-5 highway that runs North/South from Washington to California. This clustering becomes important later when we look at the predicted kriging variances and the superimposed standard deviation map.
+
+\begin{figure}[h!]
+	   
+	       \centering
+	  
+	    \includegraphics[scale=0.6]{depth_hist}
+	
+	     \caption{Depth frequency across data observations}
+	 \label{depths}
+	\end{figure}
 
 \begin{figure}[h!]
 	   
@@ -202,33 +254,34 @@ Oregon's records contain nearly 500,000 wells in the state. Since the individual
 	 \label{points}
 	\end{figure}
 
- \begin{tabular}{l|l|l|l}
+
+\section{The Variogram}
+
+
+As described in section 1.3, the variogram plots the degree of correlation between points at varying distances. This correlation is then used to predict a depth at an unsampled location ($\mathbf{s}_0$) by comparing its distance to known locations to the lags associated with those distances. The degree to which the relative lags agree on the predicted value of $\mathbf{s}_0$ then determines the kriging variance. \\
+
+Several choices go into the process of plotting the variogram. First, an effective range must be established in order to determine the maximum separation distance that will be used for the calculation. As shown in Table \ref{dists}, the average distance between data points is 237.8 kilometers while the maximum is 719 kilometers. For this reason, setting the maximum variogram distance to 300 kilometers as in Figure \ref{variogram} cuts out a lot of noise from distant and unrelated pairs while still including as many pairs as possible. \\
+
+The second main choice is how many bins to choose. Again, the tradeoff between more or fewer bins is accuracy vs. variance. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins is typically used. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. \\
+
+\begin{table}[h]
+
+\centering
+
+\begin{tabular}{l|l|l|l|l|l}
+
 \hline
-  &       x &       y &     depth\\
+Min.  & 1st Qu.  & Median  &   Mean  & 3rd Qu.  &   Max. \\
 \hline
- & Min.   :-124.5   & Min.   :42.00   & Min.   :   0.0  \\
+  0.0007 & 118.3000 & 209.1000 & 237.8000 & 330.0000 & 719.0000 \\
 \hline
- & 1st Qu.:-123.2   & 1st Qu.:42.94   & 1st Qu.:  30.0  \\
-\hline
- & Median :-122.9   & Median :43.97   & Median :  82.0  \\
-\hline
- & Mean   :-122.1   & Mean   :43.81   & Mean   : 134.4  \\
-\hline
- & 3rd Qu.:-121.5   & 3rd Qu.:44.67   & 3rd Qu.: 172.0  \\
-\hline
- & Max.   :-116.9   & Max.   :46.23   & Max.   :1000.0  \\
-\hline
+
 \end{tabular}
 
-\begin{figure}[h!]
-	   
-	       \centering
-	  
-	    \includegraphics[scale=0.6]{depth_hist}
-	
-	     \caption{Depth frequency across data observations}
-	 \label{depths}
-	\end{figure}
+\caption{Cartesian distances across data in kilometers}
+\label{dists}
+
+\end{table}
 	
 \begin{figure}[h!]
 	   
@@ -239,6 +292,10 @@ Oregon's records contain nearly 500,000 wells in the state. Since the individual
 	     \caption{Empirical variogram with 300 km maximum distance}
 	 \label{variogram}
 	\end{figure}
+
+\begin{table}[h]
+
+\centering
 
 \begin{tabular}{r|r|r}
 \hline
@@ -275,6 +332,11 @@ Lag distances & lag & \# of pairs\\
 300 & 24320.69 & 153338\\
 \hline
 \end{tabular}
+
+\caption{Variogram binning}
+\label{bins}
+
+\end{table}
 
 \begin{figure}[h!]
 	   

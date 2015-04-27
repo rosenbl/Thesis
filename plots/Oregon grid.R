@@ -113,12 +113,5 @@ image(kc)
 image(kc, val=sqrt(kc$krige.var))
 
 
-results <- data.frame(
-  long = loc$Var1,
-  lat = loc$Var2,
-  predict = kc$predict,
-  var = kc$krige.var
-  )
-
 
 

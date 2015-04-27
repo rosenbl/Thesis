@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
@@ -8,6 +8,12 @@
 Bivand, R.~S., Pebesma, E.~J., \& G\'omez-Rubio, V. (2008).
 \newblock {\em Applied Spatial Data Analysis with R\/}.
 \newblock New York, NY: Springer.
+
+\bibitem[{Chen et~al.(2014)Chen, Kim, Ross, \& Wakefield}]{SpatialEpi}
+Chen, C., Kim, A.~Y., Ross, M., \& Wakefield, J. (2014).
+\newblock {\em SpatialEpi: Methods and Data for Spatial Epidemiology\/}.
+\newblock R package version 1.2.1.
+\urlprefix\url{http://CRAN.R-project.org/package=SpatialEpi}
 
 \bibitem[{Cressie(1993)}]{cressie:1993}
 Cressie, N.~A. (1993).
@@ -20,9 +26,43 @@ Gelfand, A.~E., Diggle, P.~J., Fuentes, M., \& Guttorp, P. (2010).
 \newblock {\em Handbook of Spatial Statistics\/}.
 \newblock Boca Raton, FL: Chapman and Hall.
 
+\bibitem[{Jr \& Diggle(2001)}]{geoR}
+Jr, P. J.~R., \& Diggle, P.~J. (2001).
+\newblock geo{R}: a package for geostatistical analysis.
+\newblock {\em R-NEWS\/}, {\em 1\/}(2), 14--18.
+\newblock ISSN 1609-3631.
+\urlprefix\url{http://CRAN.R-project.org/doc/Rnews/}
+
+\bibitem[{Kahle \& Wickham(2013)}]{ggmap}
+Kahle, D., \& Wickham, H. (2013).
+\newblock {\em ggmap: A package for spatial visualization with Google Maps and
+  OpenStreetMap\/}.
+\newblock R package version 2.3.
+\urlprefix\url{http://CRAN.R-project.org/package=ggmap}
+
 \bibitem[{Stein(1999)}]{stein:1999}
 Stein, M. (1999).
 \newblock {\em Interpolation of Spatial Data\/}.
 \newblock New York, NY: Springer.
+
+\bibitem[{Wickham(2009)}]{ggplot2}
+Wickham, H. (2009).
+\newblock {\em ggplot2: elegant graphics for data analysis\/}.
+\newblock Springer New York.
+\urlprefix\url{http://had.co.nz/ggplot2/book}
+
+\bibitem[{Wickham \& Francois(2014)}]{dplyr}
+Wickham, H., \& Francois, R. (2014).
+\newblock {\em dplyr: a grammar of data manipulation\/}.
+\newblock R package version 0.2.
+\urlprefix\url{http://CRAN.R-project.org/package=dplyr}
+
+\bibitem[{Xie(2014)}]{knitr}
+Xie, Y. (2014).
+\newblock knitr: A comprehensive tool for reproducible research in {R}.
+\newblock In V.~Stodden, F.~Leisch, \& R.~D. Peng (Eds.), {\em Implementing
+  Reproducible Computational Research\/}. Chapman and Hall/CRC.
+\newblock ISBN 978-1466561595.
+\urlprefix\url{http://www.crcpress.com/product/isbn/9781466561595}
 
 \end{thebibliography}
