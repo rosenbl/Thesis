@@ -8,6 +8,8 @@
 \contentsline {section}{\numberline {2.1}Background}{9}
 \contentsline {subsection}{\numberline {2.1.1}The Data}{9}
 \contentsline {section}{\numberline {2.2}The Variogram}{10}
+\contentsline {subsection}{\numberline {2.2.1}Fitting a model}{12}
+\contentsline {section}{\numberline {2.3}Prediction}{13}
 \contentsline {chapter}{Conclusion}{23}
 \contentsline {chapter}{Appendix A: The First Appendix}{25}
 \contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{27}

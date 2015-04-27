@@ -109,11 +109,11 @@ where $\mathbf{X}(\mathbf{s})$ is a vector of covariates observed at $\mathbf{s}
 \mu(\mathbf{s}; \mathbf{\beta}) = \beta_0 + \beta_1s_1 + \beta_2s_2
 \end{align*} 
 
-where $\mathbf{s} = (s_1, s_2)$ are latitude and longitude. This definition, however, is not invariant to the choice of origin or orientation of the coordinate system \cite{gelfand:2010} and higher-order polynomials such as the quadratic loosen the restriction of independent latitude/longitude effects. \footnote{check with Albert}
+where $\mathbf{s} = (s_1, s_2)$ are latitude and longitude. This definition, however, is not invariant to the choice of origin or orientation of the coordinate system \cite{gelfand:2010} and higher-order polynomials such as the quadratic allow for omnidirectional prediction calculations.
 
-\begin{align*}
-\mu(\mathbf{s}; \mathbf{\beta}) = \beta_0 + \beta_1s_1 + \beta_2s_2 + \beta_{11}s_1^2 + \beta_{12}s_1s_2 + \beta_{22}s_2^2.
-\end{align*} 
+%\begin{align*}
+%\mu(\mathbf{s}; \mathbf{\beta}) = \beta_0 + \beta_1s_1 + \beta_2s_2 + \beta_{11}s_1^2 + \beta_{12}s_1s_2 + \beta_{22}s_2^2.
+%\end{align*} 
 
 At this point the provisional linear mean function is then fitted to the available data. There are many ways to do this, but the ordinary least squares method is typically used. This method yields an estimator $\hat\beta_{OLS}$ given by 
 
@@ -199,7 +199,7 @@ In addition to this, a few other error-correction edits were made to the data. S
 
 Another edit made to the data was removing co-located points. Several points (n=15) had the same lat/long entries but different recorded depth values. While these points could be used to calculate the variogram's nugget effect, their relatively rare frequency taken with the already established recording errors found in the sample warranted their exclusion. 
 
-\begin{table}[h]
+\begin{table}[h!]
 
 	\centering
 	
@@ -260,11 +260,9 @@ Finally, Figure \ref{points} plots all observations over a map of Oregon, with c
 
 As described in section 1.3, the variogram plots the degree of correlation between points at varying distances. This correlation is then used to predict a depth at an unsampled location ($\mathbf{s}_0$) by comparing its distance to known locations to the lags associated with those distances. The degree to which the relative lags agree on the predicted value of $\mathbf{s}_0$ then determines the kriging variance. \\
 
-Several choices go into the process of plotting the variogram. First, an effective range must be established in order to determine the maximum separation distance that will be used for the calculation. As shown in Table \ref{dists}, the average distance between data points is 237.8 kilometers while the maximum is 719 kilometers. For this reason, setting the maximum variogram distance to 300 kilometers as in Figure \ref{variogram} cuts out a lot of noise from distant and unrelated pairs while still including as many pairs as possible. \\
+Several choices go into the process of plotting the variogram. First, an effective range must be established in order to determine the maximum separation distance that will be used for the calculation. As shown in Table \ref{dists}, the average distance between data points is 237.8 kilometers while the maximum is 719 kilometers. For this reason, setting the maximum variogram distance to 300 kilometers as in Figure \ref{variogram} cuts out a lot of noise from distant and unrelated pairs while still including as many pairs as possible. 
 
-The second main choice is how many bins to choose. Again, the tradeoff between more or fewer bins is accuracy vs. variance. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins is typically used. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. \\
-
-\begin{table}[h]
+\begin{table}[h!]
 
 \centering
 
@@ -282,18 +280,12 @@ Min.  & 1st Qu.  & Median  &   Mean  & 3rd Qu.  &   Max. \\
 \label{dists}
 
 \end{table}
-	
-\begin{figure}[h!]
-	   
-	       \centering
-	  
-	    \includegraphics[scale=0.6]{Variogram}
-	
-	     \caption{Empirical variogram with 300 km maximum distance}
-	 \label{variogram}
-	\end{figure}
+The second main choice is how many bins to choose. Again, the tradeoff between more or fewer bins is accuracy vs. variance. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins is typically used. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. \\
 
-\begin{table}[h]
+The third necessary decision is whether to modify the data to represent accurate spatial distance. Since latitude and longitude are a two-dimensional projection on a curved surface, latitudes are equidistant, but the distances between longitudes varies\footnote{\cite{SpatialEpi}}. Because of this, distances between two points, $(x_1, y_1)$ and $(x_2, y_2)$, will not be accurate with respect to Euclidian distance, $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Converting to a grid-based coordinate system solves any problems this may cause. 
+
+
+\begin{table}[h!]
 
 \centering
 
@@ -337,6 +329,22 @@ Lag distances & lag & \# of pairs\\
 \label{bins}
 
 \end{table}
+
+Table \ref{bins} shows the total number of pairs and variances for each bin. When plotted as in Figure \ref{variogram}, we see a trend similar to that in Figure \ref{fig:semivariogram}. This is the empirical semivariogram and is the foundation for the fitted model.
+	
+\begin{figure}[h!]
+	   
+	       \centering
+	  
+	    \includegraphics[scale=0.6]{Variogram}
+	
+	     \caption{Empirical variogram with 300 km maximum distance}
+	 \label{variogram}
+	\end{figure}
+
+\subsection{Fitting a model}
+
+Choosing an appropriate model for the variogram 
 
 \begin{figure}[h!]
 	   
@@ -393,6 +401,10 @@ tausq    sigmasq        phi
  Cubic variogram \\
  tausq    sigmasq        phi 
  9260.4886 24906.8104   316.9988 
+ 
+ \section{Prediction}
+ 
+ Once a working model has been established for the variogram, 
  
  \begin{figure}[h!]
 	   

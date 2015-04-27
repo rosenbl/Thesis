@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  26 APR 2015 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  26 APR 2015 18:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -404,20 +404,17 @@ File: semivariogram.png Graphic file (type png)
 Package pdftex.def Info: semivariogram.png used on input line 134.
 (pdftex.def)             Requested size: 346.89731pt x 308.36638pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
+[5 <./semivariogram.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
-[5]
+
 Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
-[6 <./semivariogram.png>]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
@@ -479,135 +476,148 @@ Underfull \hbox (badness 10000) in paragraph at lines 261--262
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Variogram.png, id=109, 608.2725pt x 514.92375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
+
+ []
+
+[10]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Variogram.png, id=112, 608.2725pt x 514.92375pt>
 File: Variogram.png Graphic file (type png)
  <use Variogram.png>
-Package pdftex.def Info: Variogram.png used on input line 288.
+Package pdftex.def Info: Variogram.png used on input line 339.
 (pdftex.def)             Requested size: 364.96632pt x 308.95662pt.
-
+ [11 <./depth_hist.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<vario_matern.png, id=110, 608.2725pt x 471.7625pt>
+<vario_matern.png, id=117, 608.2725pt x 471.7625pt>
 File: vario_matern.png Graphic file (type png)
  <use vario_matern.png>
-Package pdftex.def Info: vario_matern.png used on input line 343.
+Package pdftex.def Info: vario_matern.png used on input line 351.
 (pdftex.def)             Requested size: 304.13551pt x 235.88066pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<vario_exp.png, id=111, 608.2725pt x 471.7625pt>
+<vario_exp.png, id=118, 608.2725pt x 471.7625pt>
 File: vario_exp.png Graphic file (type png)
  <use vario_exp.png>
-Package pdftex.def Info: vario_exp.png used on input line 353.
+Package pdftex.def Info: vario_exp.png used on input line 361.
 (pdftex.def)             Requested size: 304.13551pt x 235.88066pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<vario_cubic.png, id=112, 608.2725pt x 471.7625pt>
+<vario_cubic.png, id=119, 608.2725pt x 471.7625pt>
 File: vario_cubic.png Graphic file (type png)
  <use vario_cubic.png>
-Package pdftex.def Info: vario_cubic.png used on input line 363.
+Package pdftex.def Info: vario_cubic.png used on input line 371.
 (pdftex.def)             Requested size: 304.13551pt x 235.88066pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<vario_spherical.png, id=113, 608.2725pt x 486.81876pt>
+<vario_spherical.png, id=120, 608.2725pt x 486.81876pt>
 File: vario_spherical.png Graphic file (type png)
 
 <use vario_spherical.png>
-Package pdftex.def Info: vario_spherical.png used on input line 373.
+Package pdftex.def Info: vario_spherical.png used on input line 381.
 (pdftex.def)             Requested size: 304.13551pt x 243.40878pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--382
+Underfull \hbox (badness 10000) in paragraph at lines 387--390
 
  []
 
-[10] <pred_points.png, id=117, 824.07875pt x 553.06625pt>
+<pred_points.png, id=121, 824.07875pt x 553.06625pt>
 File: pred_points.png Graphic file (type png)
-
-<use pred_points.png>
-Package pdftex.def Info: pred_points.png used on input line 399.
+ <use pred_points.png>
+Package pdftex.def Info: pred_points.png used on input line 411.
 (pdftex.def)             Requested size: 576.8512pt x 387.14374pt.
 
-Overfull \hbox (143.2312pt too wide) in paragraph at lines 399--400
+Overfull \hbox (143.2312pt too wide) in paragraph at lines 411--412
  [][] 
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./points_plot.pdf>]
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tileplot.pdf, id=118, 630.355pt x 471.7625pt>
+
+Overfull \vbox (8.20956pt too high) has occurred while \output is active []
+
+
+[13 <./Variogram.png>] <tileplot.pdf, id=138, 630.355pt x 471.7625pt>
 File: tileplot.pdf Graphic file (type pdf)
- <use tileplot.pdf>
-Package pdftex.def Info: tileplot.pdf used on input line 409.
+
+<use tileplot.pdf>
+Package pdftex.def Info: tileplot.pdf used on input line 421.
 (pdftex.def)             Requested size: 441.24548pt x 330.23149pt.
 
-Overfull \hbox (7.62549pt too wide) in paragraph at lines 409--410
+Overfull \hbox (7.62549pt too wide) in paragraph at lines 421--422
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<contour_plot.pdf, id=119, 579.16376pt x 460.72125pt>
+<contour_plot.pdf, id=139, 579.16376pt x 460.72125pt>
 File: contour_plot.pdf Graphic file (type pdf)
  <use contour_plot.pdf>
-Package pdftex.def Info: contour_plot.pdf used on input line 419.
+Package pdftex.def Info: contour_plot.pdf used on input line 431.
 (pdftex.def)             Requested size: 405.41187pt x 322.50267pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<var_plot.pdf, id=120, 579.16376pt x 471.7625pt>
+<var_plot.pdf, id=140, 579.16376pt x 471.7625pt>
 File: var_plot.pdf Graphic file (type pdf)
  <use var_plot.pdf>
-Package pdftex.def Info: var_plot.pdf used on input line 429.
+Package pdftex.def Info: var_plot.pdf used on input line 441.
 (pdftex.def)             Requested size: 405.41187pt x 330.23149pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<sd_plot.pdf, id=121, 579.16376pt x 445.665pt>
+<sd_plot.pdf, id=141, 579.16376pt x 445.665pt>
 File: sd_plot.pdf Graphic file (type pdf)
  <use sd_plot.pdf>
-Package pdftex.def Info: sd_plot.pdf used on input line 439.
+Package pdftex.def Info: sd_plot.pdf used on input line 451.
 (pdftex.def)             Requested size: 405.41187pt x 311.96336pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<var_crop.pdf, id=122, 579.16376pt x 445.665pt>
+<var_crop.pdf, id=142, 579.16376pt x 445.665pt>
 File: var_crop.pdf Graphic file (type pdf)
  <use var_crop.pdf>
-Package pdftex.def Info: var_crop.pdf used on input line 449.
+Package pdftex.def Info: var_crop.pdf used on input line 461.
 (pdftex.def)             Requested size: 405.41187pt x 311.96336pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<sd_crop.pdf, id=123, 579.16376pt x 471.7625pt>
+<sd_crop.pdf, id=143, 579.16376pt x 471.7625pt>
 File: sd_crop.pdf Graphic file (type pdf)
  <use sd_crop.pdf>
-Package pdftex.def Info: sd_crop.pdf used on input line 459.
+Package pdftex.def Info: sd_crop.pdf used on input line 471.
 (pdftex.def)             Requested size: 405.41187pt x 330.23149pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11 <./depth_hist.png>] [12 <./points_plot.pdf>] [13 <./Variogram.png>]
 [14 <./vario_matern.png> <./vario_exp.png>] [15 <./vario_cubic.png> <./vario_sp
 herical.png>] [16 <./pred_points.png>] [17 <./tileplot.pdf>] [18 <./contour_plo
 t.pdf>] [19 <./var_plot.pdf>] [20 <./sd_plot.pdf>] [21 <./var_crop.pdf>]
@@ -625,37 +635,33 @@ Appendix B.
 
 ] (./thesis.bbl) [29
 
-] (./thesis.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] (./thesis.aux) ) 
 Here is how much of TeX's memory you used:
  3506 strings out of 493117
  45946 string characters out of 6135433
- 115494 words of memory out of 5000000
+ 112494 words of memory out of 5000000
  6856 multiletter control sequences out of 15000+600000
  15160 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,45p,1379b,290s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (47 pages, 3989989 bytes).
+ 38i,11n,45p,1379b,284s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on thesis.pdf (47 pages, 3992620 bytes).
 PDF statistics:
  324 PDF objects out of 1000 (max. 8388607)
  211 compressed objects within 3 object streams
