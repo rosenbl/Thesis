@@ -344,7 +344,31 @@ Table \ref{bins} shows the total number of pairs and variances for each bin. Whe
 
 \subsection{Fitting a model}
 
-Choosing an appropriate model for the variogram 
+Variograms in general tend to increase roughly with distance. Because of this, the most common fitted models are ones that increase monotonically, but this is not a necessary condition. Any model must meet the three conditions from Chapter 1, namely 1) vanishing at zero, 2) evenness, and 3) conditional negative definiteness. The most common tends to be the Mat\'ern model, given by 
+
+\begin{align*}
+\gamma(h) = \theta_1\left (1-{{(h/\theta_2)^\nu\kappa_{\nu}(h/\theta_2)}\over{2^{\nu-1}\Gamma(\nu)}} \right )
+\end{align*}
+
+where $\kappa_\nu$ is the modified Bessel function of the second kind of order $\nu$ (\cite{gelfand:2010}) and $(\theta_1, \theta_2)$ is a parameter vector to be optimized. \\
+
+Figure \ref{matern} shows the empirical variogram from Figure \ref{variogram} fitted with a Mat\'ern model. The fit was calculated using Weighted Least Squares (WLS) given by
+
+\begin{align*}
+\hat{\mathbf{\theta}} = \text{argmin}\sum_{h \in H_u} {{n(\mathbf{h}_u)}\over{[\gamma(\mathbf{h}_u)]^2}}[\hat\gamma(\mathbf{h}_u) - \gamma(\mathbf{h}_u)]^2
+\end{align*}
+
+with all variables defined as in Chapter 1. Note that either a large $\gamma(\mathbf{h}_u)$ or a small $n(\mathbf{h}_u)$ corresponds to smaller weights. This means that larger lags are given less weight than smaller lags. \\
+
+When choosing a model, a few particular attributes play an important role. Notably the \emph{sill}, \emph{range}, and \emph{nugget} of the model will significantly affect the kriging calculation. The sill is effectually the highest point in the variogram, or the maximum variance across all pairs of data points (i.e. $\text{lim}_{h\to\infty}\gamma(h)$ provided the limit exists). For the Mat\'ern model this corresponds with $\theta_1$. The range is the smallest value of $\mathbf{h}$ for which the variogram equals its sill. The nugget is defined as $\text{lim}_{h\to0}\gamma(h)$, or the y-intercept,  and can be thought of as a measurement error that accounts for differing data values at very close or co-located points. These three attributes are generally considered just as much as closeness-of-fit when choosing a variogram model. \\
+
+In addition to the Mat\'ern model, several common functions include the exponential (Figure \ref{exp}), the power (Figure \ref{cubic}), and the spherical (Figure \ref{sph}). Table \ref{param} gives the optimized parameter vectors for each model as fitted to the empirical variogram from this section, with tau squared being the nugget variance, sigma squared the sill, and phi the range. Though all are good fits, the kriging step in the following section uses the spherical model, given by
+
+\begin{align*}
+\gamma(h) = \theta_1 \left ( {{3h}\over{2\theta_2}} - {{h^3}\over{2\theta_2^3}} \right )
+\end{align*}
+
+for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
 
 \begin{figure}[h!]
 	   
@@ -352,7 +376,7 @@ Choosing an appropriate model for the variogram
 	  
 	    \includegraphics[scale=0.5]{vario_matern}
 	
-	     \caption{Empirical variogram with matern model}
+	     \caption{Empirical variogram with mat\'ern model}
 	 \label{matern}
 	\end{figure}
 	
@@ -386,25 +410,55 @@ Choosing an appropriate model for the variogram
 	 \label{sph}
 	\end{figure}
 	
-Spherical variogram\\
-tausq    sigmasq        phi 
- 5402.2780 28048.6894   254.8803 \\
+\begin{table}[h!]
+
+\centering
+
+\begin{tabular}{l|l|l}
+
+\hline
+ Spherical variogram &&\\
+\hline
+tau squared  &  sigma squared     &   phi \\
+\hline
+ 5402.2780 & 28048.6894  & 254.8803 \\
+ \hline \\
+ \hline
+ Mat\'ern variogram&& \\
+\hline
+ tau squared  & sigma squared   &    phi \\
+ \hline
+ 6003.337 & 38428.555  & 198.255 \\
+ \hline \\
+ \hline
+ Exponential variogram & &\\
+\hline
+ tau squared  & sigma squared   &    phi \\
+ \hline
+ 6003.337 & 38428.555  & 198.255 \\
+ \hline \\
+ \hline
+Cubic variogram & &\\
+\hline
+ tau squared &   sigma squared    &    phi \\
+ \hline
+ 9260.4886 & 24906.8104  & 316.9988 \\
+ \hline
  
- Matern variogram \\
- tausq   sigmasq       phi 
- 6003.337 38428.555   198.255 
+ \end{tabular}
  
- Exponential variogram \\
- tausq   sigmasq       phi 
- 6003.337 38428.555   198.255 
+ \caption{Optimized parameters for several fitted variogram models}
+ \label{param}
  
- Cubic variogram \\
- tausq    sigmasq        phi 
- 9260.4886 24906.8104   316.9988 
+ \end{table}
  
  \section{Prediction}
  
- Once a working model has been established for the variogram, 
+ Once a working model has been established for the variogram, the prediction step is relatively straightforward. Using the equation from Chapter 1, and the variogram model from the previous section, we can define a grid of points over a prediction region and use it to build a topographical map. \\
+ 
+ Figure \ref{grid} shows a grid of points constrained to the outer perimeter of Oregon. These will be the prediction locations for the kriging function. By further dividing the region into prediction blocks rather than points as in Figure \ref{tile}, it is possible to color each block with the prediction value associated with that block. 
+ 
+
  
  \begin{figure}[h!]
 	   
@@ -436,15 +490,15 @@ tausq    sigmasq        phi
 	 \label{contour}
 	\end{figure}
 	
-\begin{figure}[h!]
+%\begin{figure}[h!]
 	   
-	       \centering
+	   %    \centering
 	  
-	    \includegraphics[scale=0.7]{var_plot}
+	  %  \includegraphics[scale=0.7]{var_plot}
 	
-	     \caption{Variance grid}
-	 \label{var}
-	\end{figure}
+	  %   \caption{Variance grid}
+	% \label{var}
+	%\end{figure}
 	
 \begin{figure}[h!]
 	   
@@ -456,15 +510,15 @@ tausq    sigmasq        phi
 	 \label{sd}
 	\end{figure}
 	
-\begin{figure}[h!]
+%\begin{figure}[h!]
 	   
-	       \centering
+	   %    \centering
 	  
-	    \includegraphics[scale=0.7]{var_crop}
+	   % \includegraphics[scale=0.7]{var_crop}
 	
-	     \caption{Cropped variance plot}
-	 \label{varcrop}
-	\end{figure}
+	  %   \caption{Cropped variance plot}
+	% \label{varcrop}
+	%\end{figure}
 	
 \begin{figure}[h!]
 	   
