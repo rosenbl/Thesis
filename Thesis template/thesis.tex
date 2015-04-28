@@ -16,7 +16,7 @@
 
 % \usepackage{times} % other fonts are available like times, bookman, charter, palatino
 
-\title{My Final College Paper}
+\title{Mapping Oregon Groundwater: a Geo-Statistical Analysis in Spatial Interpolation}
 \author{Blake Rosenthal}
 
 \date{May 2015}
@@ -52,11 +52,11 @@
 
 % The abstract is not required if you're writing a creative thesis (but aren't they all?)
 % If your abstract is longer than a page, there may be a formatting issue.
-    \chapter*{Abstract}
-	The preface pretty much says it all.
+    %\chapter*{Abstract}
+	%The preface pretty much says it all.
 	
-	\chapter*{Dedication}
-	You can have a dedication here if you wish.
+	%\chapter*{Dedication}
+	%You can have a dedication here if you wish.
 
   \mainmatter % here the regular arabic numbering starts
   \pagestyle{fancyplain} % turns page numbering back on
@@ -199,7 +199,7 @@ In addition to this, a few other error-correction edits were made to the data. S
 
 Another edit made to the data was removing co-located points. Several points (n=15) had the same lat/long entries but different recorded depth values. While these points could be used to calculate the variogram's nugget effect, their relatively rare frequency taken with the already established recording errors found in the sample warranted their exclusion. 
 
-\begin{table}[h!]
+\begin{table}[h]
 
 	\centering
 	
@@ -234,7 +234,7 @@ Table \ref{data} gives a few preliminary stats on the data. The longitude and la
 
 Finally, Figure \ref{points} plots all observations over a map of Oregon, with color corresponding to depth. The clustering along the West side of the state is due to statewide population densities, with more Oregon residents living near the I-5 highway that runs North/South from Washington to California. This clustering becomes important later when we look at the predicted kriging variances and the superimposed standard deviation map.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -244,7 +244,7 @@ Finally, Figure \ref{points} plots all observations over a map of Oregon, with c
 	 \label{depths}
 	\end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -262,7 +262,7 @@ As described in section 1.3, the variogram plots the degree of correlation betwe
 
 Several choices go into the process of plotting the variogram. First, an effective range must be established in order to determine the maximum separation distance that will be used for the calculation. As shown in Table \ref{dists}, the average distance between data points is 237.8 kilometers while the maximum is 719 kilometers. For this reason, setting the maximum variogram distance to 300 kilometers as in Figure \ref{variogram} cuts out a lot of noise from distant and unrelated pairs while still including as many pairs as possible. 
 
-\begin{table}[h!]
+\begin{table}[h]
 
 \centering
 
@@ -285,7 +285,7 @@ The second main choice is how many bins to choose. Again, the tradeoff between m
 The third necessary decision is whether to modify the data to represent accurate spatial distance. Since latitude and longitude are a two-dimensional projection on a curved surface, latitudes are equidistant, but the distances between longitudes varies\footnote{\cite{SpatialEpi}}. Because of this, distances between two points, $(x_1, y_1)$ and $(x_2, y_2)$, will not be accurate with respect to Euclidian distance, $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Converting to a grid-based coordinate system solves any problems this may cause. 
 
 
-\begin{table}[h!]
+\begin{table}[h]
 
 \centering
 
@@ -332,7 +332,7 @@ Lag distances & lag & \# of pairs\\
 
 Table \ref{bins} shows the total number of pairs and variances for each bin. When plotted as in Figure \ref{variogram}, we see a trend similar to that in Figure \ref{fig:semivariogram}. This is the empirical semivariogram and is the foundation for the fitted model.
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -370,7 +370,7 @@ In addition to the Mat\'ern model, several common functions include the exponent
 
 for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
 
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -380,7 +380,7 @@ for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
 	 \label{matern}
 	\end{figure}
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -390,7 +390,7 @@ for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
 	 \label{exp}
 	\end{figure}
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -400,7 +400,7 @@ for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
 	 \label{cubic}
 	\end{figure}
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
@@ -410,7 +410,7 @@ for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
 	 \label{sph}
 	\end{figure}
 	
-\begin{table}[h!]
+\begin{table}[h]
 
 \centering
 
@@ -460,21 +460,21 @@ Cubic variogram & &\\
  
 
  
- \begin{figure}[h!]
+ \begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.7]{pred_points}
+	    \includegraphics[scale=0.5]{pred_points}
 	
 	     \caption{Gridded prediction points}
 	 \label{grid}
 	\end{figure}
  
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.7]{tileplot}
+	    \includegraphics[scale=0.5]{tileplot}
 	
 	     \caption{Tiled prediction grid}
 	 \label{tile}
@@ -482,17 +482,17 @@ Cubic variogram & &\\
 	
 Finally, mapping out contours as in Figure \ref{polygon} culminates the process by giving a comprehensive visual of the groundwater throughout the state of Oregon, with lighter colors corresponding to deeper water.
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.7]{polygon_plot}
+	    \includegraphics[scale=0.5]{polygon_plot}
 	
 	     \caption{Prediction grid with contour regions}
 	 \label{polygon}
 	\end{figure}
 	
-%\begin{figure}[h!]
+%\begin{figure}[h]
 	   
 	   %    \centering
 	  
@@ -506,17 +506,17 @@ Finally, mapping out contours as in Figure \ref{polygon} culminates the process 
 
 As described in Chapter 1, kriging also provides a variance for each prediction point based on agreement between each lag of the semivariogram. Taking the square root of the variance then gives the standard deviation which can then be plotted similarly to the prediction region itself. Figure \ref{sd} maps the relative certainty of the prediction points produced by the kriging function. Comparing this to Figure \ref{points} demonstrates how the clustering along the Westmost edge of the state provided the most prediction confidence in that region, with higher variances occurring in subregions populated by fewer points. In other words, the prediction variance roughly corresponds to the inverse of the density of observations. 
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.7]{sd_plot}
+	    \includegraphics[scale=0.5]{sd_plot}
 	
 	     \caption{Standard deviation grid}
 	 \label{sd}
 	\end{figure}
 	
-%\begin{figure}[h!]
+%\begin{figure}[h]
 	   
 	   %    \centering
 	  
@@ -529,11 +529,11 @@ As described in Chapter 1, kriging also provides a variance for each prediction 
 	
 An interesting effect found in Figure \ref{sd} is the fringe effects around the border of the prediction region. Kriging is inherently an interpolation, rather than extrapolation method. Points outside the original bounding region will experience significantly more variance than points further inside the prediction region, even when compared to areas of lower density. For this reason, cropping the border provides a greater contrast to the grid and allows the density effects to be more apparent.
 	
-\begin{figure}[h!]
+\begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.7]{sd_crop}
+	    \includegraphics[scale=0.5]{sd_crop}
 	
 	     \caption{Cropped standard deviation plot}
 	 \label{sdcrop}
@@ -547,7 +547,7 @@ An interesting effect found in Figure \ref{sd} is the fringe effects around the 
 	\setcounter{chapter}{4}
 	\setcounter{section}{0}
 	
-Groundwater is an essential part of any natural ecosystem. As part of the hydrological cycle of evaporation and precipitation, groundwater represents a relatively constant measure of total water within a region because of its relative immunity to the frequent changes occurring at the surface level (\cite{groundwater}). Because of this, it is an excellent candidate for spatial interpolation and prediction. By measuring and mapping the distribution of groundwater throughout the state of Oregon, water quality regulators may accurately assess the health of surface vegetation and other factors. Since groundwater is also closely related to the type of surrounding soil, with certain soil types being more or less conducive to water storage, water maps also may provide a way of determining geological factors across a region. From an even more pragmatic standpoint, kriging with well data provides useful information when digging new wells -- someone drilling near Bend, Oregon may expect to drill several hundred feet before hitting water. \\
+Groundwater is an essential part of any natural ecosystem. As part of the hydrological cycle of evaporation and precipitation, groundwater represents a relatively constant measure of total water within a region because of its relative immunity to the frequent changes occurring at the surface level \cite{groundwater}. Because of this, it is an excellent candidate for spatial interpolation and prediction. By measuring and mapping the distribution of groundwater throughout the state of Oregon, water quality regulators may accurately assess the health of surface vegetation and other factors. Since groundwater is also closely related to the type of surrounding soil, with certain soil types being more or less conducive to water storage, water maps also may provide a way of determining geological factors across a region. From an even more pragmatic standpoint, kriging with well data provides useful information when digging new wells -- someone drilling near Bend, Oregon may expect to drill several hundred feet before hitting water. \\
 
 This data also indicates that the center of Oregon is by far the driest portion of the state. This thesis looked specifically at the depth at which water was first recorded. The resulting map, therefore, actually depicts Oregon's \emph{water table} -- a two-dimensional sheet of subterranean water. Other variables that could have been subjected to the same process include total depth or flow rate, though these are usually correlated with the water table itself and would have likely resulted in a similar map. \\
 
@@ -556,12 +556,163 @@ Overall, kriging proved to be an effective process for analyzing this type of da
 
 %If you feel it necessary to include an appendix, it goes here.
     \appendix
-      \chapter{R code and packages}
-     % \chapter{The Second Appendix, for Fun}
+      
+     \chapter*{Appendix: R code and packages}
+     	\addcontentsline{toc}{chapter}{Appendix}
+	\chaptermark{Appendix}
+	\markboth{Appendix}{Appendix}
 
 
-%This is where endnotes are supposed to go, if you have them.
-%I have no idea how endnotes work with LaTeX.
+The majority of the work for this thesis was done with R, an open source software program for statistical programming. The bulk of the kriging process was completed with the help of the \textbf{geoR} package \cite{geoR} and its programmed variogram, kriging, and variance functions. For the maps and graphics, \textbf{ggmap} \cite{ggmap} and \textbf{ggplot2} \cite{ggplot2} provided a clean and functional way to visually depict the results over a map of Oregon. The original dataset from the Oregon.gov Water Resources Department contained nearly 500,000 data points and a significant amount of extraneous information. For this, the R package \textbf{dplyr} \cite{dplyr} proved to be an invaluable tool for paring down the original dataset to something manageable. Below is a partial log of many of the important steps taken to produce the results found in this thesis; the complete R code can be found at this project's GitHub repository \url{https://github.com/rosenbl/Thesis} along with the original data files and edited data. \\
+
+\begin{verbatim}
+
+library(ggmap)
+library(ggplot2)
+library(SpatialEpi)
+library(geoR)
+library(dplyr)
+
+
+latlong <- read.csv("latlong.csv")
+grid <- read.csv("grid2.csv")
+oregonborder <- read.csv("oregonborder3.csv")
+
+Map <- get_map(location = "Oregon",
+               color = "color", # or bw
+               source = "google",
+               maptype = "roadmap",
+               zoom = 6)
+
+gm <- ggmap(Map,
+      extent = "panel",
+      ylab = "Latitude",
+      xlab = "Longitude",
+      legend = "right") 
+
+gm + geom_point(data = latlong, 
+             #color = "red",
+             aes(x = x, y = y, color = depth)) 
+             + scale_colour_gradient(low="black", high="red")
+
+# summary of data
+plot(grid$x, grid$y)
+dim(grid)
+
+dists <- dist(grid[,1:2])
+summary(dists)
+
+# set up data for variogram
+geogrid <- as.geodata(grid)
+geogrid$kappa <- 0.5
+geogrid$lambda <- 1
+geogrid$cov.model <- "spherical"
+
+breaks <- seq(from = 0, to = 300, by = 300/15)
+
+# make variogram
+variogram <- variog(geogrid, breaks = breaks, option = "bin")
+
+plot(variogram, main = "Variogram")
+
+
+v.summary <- cbind(cbind(breaks[2:16]), variogram$v, variogram$n)
+colnames(v.summary) <- c("lag", "semi-variance", "# of pairs")
+
+v.summary
+plot(v.summary[,1], v.summary[,3], main="Lag distances", 
+	xlab="lag", ylab="# of pairs")
+
+# fit model
+fit <- variofit(variogram, 
+                ini.cov.pars=c(40000,225), 
+                cov.model="spherical", 
+                fix.nugget=FALSE, 
+                max.dist=300)
+summary(fit)
+lines(fit)
+
+
+# choose prediction regions based on coordinate mins/maxes
+summary(grid)
+
+loc <- expand.grid(seq(-10885, -10070, by=10), seq(4668, 5200, by=10))
+
+border <- latlong2grid(oregonborder)
+
+ins <- locations.inside(loc, border)
+
+# kriging step, provide sigmasq/phi vector from fitted variogram
+krige <- krige.conv(geogrid, loc=ins, 
+	krige=krige.control(cov.pars=c(28048.6894, 254.8803)))
+
+
+resultsxy <- data.frame(
+  x = ins$Var1,
+  y = ins$Var2
+  )
+
+
+resultslatlong <- grid2latlong(resultsxy)
+
+results <- data.frame(
+  x = resultslatlong$x,
+  y = resultslatlong$y,
+  predict = krige$predict,
+  var = krige$krige.var
+)
+
+# build the maps
+
+# prediction points only
+gm + geom_point(data=results, alpha=0.5, aes(x,y))
+
+# prediction points with predicted values
+gm + geom_point(data=results, alpha=0.7, aes(x, y, color=predict))
+
+# tiled prediction map
+tile <- gm + geom_tile(data=results, alpha=0.5, aes(x, y, fill=predict))
+tile
+
+# with contour plot
+contour <- tile + geom_contour(data=results, aes(x,y, z=predict))
+contour
+
+# polygon plot
+poly <- gm + stat_contour(data=results, 
+                          geom="polygon", 
+                          bins=4, 
+                          aes(x,y, z=predict, fill=..level.., alpha = ..level..))
+
+poly + guides(alpha="none")
+
+# variance map
+gm + geom_tile(data=results, alpha=0.7,
+               aes(x,y, fill=var)) + scale_fill_gradient(low="yellow", high="red")
+
+# standard deviation map
+sd <- sqrt(results$var)
+
+gm + geom_tile(data=results, alpha=0.7, aes(x,y, fill=sd)) 
+	+ scale_fill_gradient(low="yellow", high="red")
+
+# cropped variance map
+crop <- filter(results, x > -123.8) %>% filter(x < -117.3) 
+	%>% filter(y > 42.2) %>% filter(y < 45.5)
+
+gm + geom_tile(data=crop, alpha=0.7,
+               aes(x,y, fill=var)) 
+               + scale_fill_gradient(low="yellow", high="red")
+
+# cropped sd map
+sd <- sqrt(crop$var)
+gm + geom_tile(data=crop, alpha=0.7, aes(x,y, fill=sd)) 
+	+ scale_fill_gradient(low="yellow", high="red")
+
+# some more data visualization
+hist(latlong$depth, main="Depths", xlab="depth", ylab="frequency")
+
+\end{verbatim}
 
   \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...
 
