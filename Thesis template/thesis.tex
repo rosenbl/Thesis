@@ -480,14 +480,16 @@ Cubic variogram & &\\
 	 \label{tile}
 	\end{figure}
 	
+Finally, mapping out contours as in Figure \ref{polygon} culminates the process by giving a comprehensive visual of the groundwater throughout the state of Oregon, with lighter colors corresponding to deeper water.
+	
 \begin{figure}[h!]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.7]{contour_plot}
+	    \includegraphics[scale=0.7]{polygon_plot}
 	
-	     \caption{Prediction grid with contour lines}
-	 \label{contour}
+	     \caption{Prediction grid with contour regions}
+	 \label{polygon}
 	\end{figure}
 	
 %\begin{figure}[h!]
@@ -499,6 +501,10 @@ Cubic variogram & &\\
 	  %   \caption{Variance grid}
 	% \label{var}
 	%\end{figure}
+	
+\subsection{Prediction variance}
+
+As described in Chapter 1, kriging also provides a variance for each prediction point based on agreement between each lag of the semivariogram. Taking the square root of the variance then gives the standard deviation which can then be plotted similarly to the prediction region itself. Figure \ref{sd} maps the relative certainty of the prediction points produced by the kriging function. Comparing this to Figure \ref{points} demonstrates how the clustering along the Westmost edge of the state provided the most prediction confidence in that region, with higher variances occurring in subregions populated by fewer points. In other words, the prediction variance roughly corresponds to the inverse of the density of observations. 
 	
 \begin{figure}[h!]
 	   
@@ -520,6 +526,9 @@ Cubic variogram & &\\
 	% \label{varcrop}
 	%\end{figure}
 	
+	
+An interesting effect found in Figure \ref{sd} is the fringe effects around the border of the prediction region. Kriging is inherently an interpolation, rather than extrapolation method. Points outside the original bounding region will experience significantly more variance than points further inside the prediction region, even when compared to areas of lower density. For this reason, cropping the border provides a greater contrast to the grid and allows the density effects to be more apparent.
+	
 \begin{figure}[h!]
 	   
 	       \centering
@@ -538,13 +547,17 @@ Cubic variogram & &\\
 	\setcounter{chapter}{4}
 	\setcounter{section}{0}
 	
+Groundwater is an essential part of any natural ecosystem. As part of the hydrological cycle of evaporation and precipitation, groundwater represents a relatively constant measure of total water within a region because of its relative immunity to the frequent changes occurring at the surface level (\cite{groundwater}). Because of this, it is an excellent candidate for spatial interpolation and prediction. By measuring and mapping the distribution of groundwater throughout the state of Oregon, water quality regulators may accurately assess the health of surface vegetation and other factors. Since groundwater is also closely related to the type of surrounding soil, with certain soil types being more or less conducive to water storage, water maps also may provide a way of determining geological factors across a region. From an even more pragmatic standpoint, kriging with well data provides useful information when digging new wells -- someone drilling near Bend, Oregon may expect to drill several hundred feet before hitting water. \\
 
+This data also indicates that the center of Oregon is by far the driest portion of the state. This thesis looked specifically at the depth at which water was first recorded. The resulting map, therefore, actually depicts Oregon's \emph{water table} -- a two-dimensional sheet of subterranean water. Other variables that could have been subjected to the same process include total depth or flow rate, though these are usually correlated with the water table itself and would have likely resulted in a similar map. \\
+
+Overall, kriging proved to be an effective process for analyzing this type of data. While further analyses of different variograms, alternate optimization methods, or more complex mean functions could be explored, the standard kriging process born from the South African mining industry provides an accurate and informative depiction of Oregon groundwater.
 
 
 %If you feel it necessary to include an appendix, it goes here.
     \appendix
-      \chapter{The First Appendix}
-      \chapter{The Second Appendix, for Fun}
+      \chapter{R code and packages}
+     % \chapter{The Second Appendix, for Fun}
 
 
 %This is where endnotes are supposed to go, if you have them.
@@ -560,10 +573,10 @@ Cubic variogram & &\\
 \renewcommand{\bibname}{Bibliography}
 
 %    \bibliographystyle{bsts/mla-good} % there are a variety of styles available; 
-%  \bibliographystyle{plainnat}
+\bibliographystyle{plain}
 % replace ``plainnat'' with the style of choice. You can refer to files in the bsts or APA 
 % subfolder, e.g. 
- \bibliographystyle{APA/apa-good}  % or
+ %\bibliographystyle{APA/apa-good}  % or
  \bibliography{kriging}
  % Comment the above two lines and uncomment the next line to use biblatex-chicago.
  %\printbibliography[heading=bibintoc]

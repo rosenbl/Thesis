@@ -10,7 +10,7 @@
 \contentsline {section}{\numberline {2.2}The Variogram}{10}
 \contentsline {subsection}{\numberline {2.2.1}Fitting a model}{12}
 \contentsline {section}{\numberline {2.3}Prediction}{14}
+\contentsline {subsection}{\numberline {2.3.1}Prediction variance}{15}
 \contentsline {chapter}{Conclusion}{23}
-\contentsline {chapter}{Appendix A: The First Appendix}{25}
-\contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{27}
-\contentsline {chapter}{Bibliography}{29}
+\contentsline {chapter}{Appendix A: R code and packages}{25}
+\contentsline {chapter}{Bibliography}{27}

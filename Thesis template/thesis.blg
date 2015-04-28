@@ -1,46 +1,49 @@
 This is BibTeX, Version 0.99d (TeX Live 2014)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
-The style file: APA/apa-good.bst
+The style file: plainnat.bst
 Database file #1: kriging.bib
-You've used 10 entries,
-            2804 wiz_defined-function locations,
-            646 strings with 6092 characters,
-and the built_in function-call counts, 5025 in all, are:
-= -- 387
-> -- 204
-< -- 7
-+ -- 76
-- -- 66
-* -- 358
-:= -- 814
-add.period$ -- 33
-call.type$ -- 10
-change.case$ -- 72
-chr.to.int$ -- 10
-cite$ -- 10
-duplicate$ -- 377
-empty$ -- 388
-format.name$ -- 95
-if$ -- 971
+Warning--entry type for "groundwater" isn't style-file defined
+--line 12 of file kriging.bib
+You've used 11 entries,
+            2773 wiz_defined-function locations,
+            661 strings with 6490 characters,
+and the built_in function-call counts, 4175 in all, are:
+= -- 359
+> -- 232
+< -- 8
++ -- 80
+- -- 69
+* -- 302
+:= -- 684
+add.period$ -- 44
+call.type$ -- 11
+change.case$ -- 47
+chr.to.int$ -- 11
+cite$ -- 22
+duplicate$ -- 213
+empty$ -- 350
+format.name$ -- 86
+if$ -- 857
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 84
-newline$ -- 65
-num.names$ -- 42
-pop$ -- 179
+missing$ -- 12
+newline$ -- 73
+num.names$ -- 46
+pop$ -- 115
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 44
 quote$ -- 0
-skip$ -- 147
+skip$ -- 154
 stack$ -- 0
-substring$ -- 139
-swap$ -- 181
+substring$ -- 41
+swap$ -- 15
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 75
+type$ -- 96
 warning$ -- 0
-while$ -- 33
+while$ -- 36
 width$ -- 0
-write$ -- 138
+write$ -- 165
+(There was 1 warning)

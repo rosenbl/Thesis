@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  27 APR 2015 15:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  27 APR 2015 17:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -585,36 +585,47 @@ Overfull \hbox (7.62549pt too wide) in paragraph at lines 477--478
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<contour_plot.pdf, id=139, 579.16376pt x 460.72125pt>
-File: contour_plot.pdf Graphic file (type pdf)
- <use contour_plot.pdf>
-Package pdftex.def Info: contour_plot.pdf used on input line 487.
-(pdftex.def)             Requested size: 405.41187pt x 322.50267pt.
+<polygon_plot.pdf, id=139, 579.16376pt x 438.63875pt>
+File: polygon_plot.pdf Graphic file (type pdf)
+ <use polygon_plot.pdf>
+Package pdftex.def Info: polygon_plot.pdf used on input line 489.
+(pdftex.def)             Requested size: 405.41187pt x 307.04501pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<sd_plot.pdf, id=140, 579.16376pt x 445.665pt>
+[14] [15 <./vario_matern.png> <./vario_exp.png>]
+<sd_plot.pdf, id=148, 579.16376pt x 445.665pt>
 File: sd_plot.pdf Graphic file (type pdf)
  <use sd_plot.pdf>
-Package pdftex.def Info: sd_plot.pdf used on input line 507.
+Package pdftex.def Info: sd_plot.pdf used on input line 513.
 (pdftex.def)             Requested size: 405.41187pt x 311.96336pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<sd_crop.pdf, id=141, 579.16376pt x 471.7625pt>
+[16 <./vario_cubic.png> <./vario_spherical.png>]
+<sd_crop.pdf, id=154, 579.16376pt x 471.7625pt>
 File: sd_crop.pdf Graphic file (type pdf)
  <use sd_crop.pdf>
-Package pdftex.def Info: sd_crop.pdf used on input line 527.
+Package pdftex.def Info: sd_crop.pdf used on input line 536.
 (pdftex.def)             Requested size: 405.41187pt x 330.23149pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14] [15 <./vario_matern.png> <./vario_exp.png>] [16 <./vario_cubic.png> <./var
-io_spherical.png>] [17] [18 <./pred_points.png>] [19 <./tileplot.pdf>] [20 <./c
-ontour_plot.pdf>] [21 <./sd_plot.pdf>] [22 <./sd_crop.pdf>] [23
+[17] [18 <./pred_points.png>] [19 <./tileplot.pdf>] [20 <./polygon_plot.pdf>]
+[21 <./sd_plot.pdf>] [22 <./sd_crop.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 550--551
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 552--553
+
+ []
+
+[23
 
 ] [24
 
@@ -622,46 +633,43 @@ ontour_plot.pdf>] [21 <./sd_plot.pdf>] [22 <./sd_crop.pdf>] [23
 Appendix A.
 [25] [26
 
-]
-Appendix B.
-[27] [28
+] (./thesis.bbl) [27
 
-] (./thesis.bbl) [29
+] (./thesis.aux
 
-] (./thesis.aux)
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
  3498 strings out of 493117
- 45803 string characters out of 6135433
- 114505 words of memory out of 5000000
+ 45819 string characters out of 6135433
+ 115525 words of memory out of 5000000
  6850 multiletter control sequences out of 15000+600000
  15160 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,12n,45p,1379b,284s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/
-2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-4/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2014
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (47 pages, 3086633 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
+4/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on thesis.pdf (45 pages, 3045600 bytes).
 PDF statistics:
- 299 PDF objects out of 1000 (max. 8388607)
- 195 compressed objects within 2 object streams
+ 295 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

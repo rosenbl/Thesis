@@ -1,68 +1,77 @@
-\begin{thebibliography}{10}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{{\tt #1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[{Bivand et~al.(2008)Bivand, Pebesma, \& G\'omez-Rubio}]{bivand:2008}
-Bivand, R.~S., Pebesma, E.~J., \& G\'omez-Rubio, V. (2008).
-\newblock {\em Applied Spatial Data Analysis with R\/}.
-\newblock New York, NY: Springer.
+\bibitem[Bivand et~al.(2008)Bivand, Pebesma, and G\'omez-Rubio]{bivand:2008}
+Roger~S. Bivand, Edzer~J. Pebesma, and Virgilio G\'omez-Rubio.
+\newblock \emph{Applied Spatial Data Analysis with R}.
+\newblock Springer, New York, NY, 2008.
 
-\bibitem[{Chen et~al.(2014)Chen, Kim, Ross, \& Wakefield}]{SpatialEpi}
-Chen, C., Kim, A.~Y., Ross, M., \& Wakefield, J. (2014).
-\newblock {\em SpatialEpi: Methods and Data for Spatial Epidemiology\/}.
+\bibitem[Chen et~al.(2014)Chen, Kim, Ross, and Wakefield]{SpatialEpi}
+Cici Chen, Albert~Y. Kim, Michelle Ross, and Jon Wakefield.
+\newblock \emph{SpatialEpi: Methods and Data for Spatial Epidemiology}, 2014.
+\newblock URL \url{http://CRAN.R-project.org/package=SpatialEpi}.
 \newblock R package version 1.2.1.
-\urlprefix\url{http://CRAN.R-project.org/package=SpatialEpi}
 
-\bibitem[{Cressie(1993)}]{cressie:1993}
-Cressie, N.~A. (1993).
-\newblock {\em Statistics for Spatial Data\/}.
-\newblock New York, NY: John Wiley and Sons, Inc.
+\bibitem[Cressie(1993)]{cressie:1993}
+Noel~A.C. Cressie.
+\newblock \emph{Statistics for Spatial Data}.
+\newblock John Wiley and Sons, Inc, New York, NY, 1993.
+\newblock ISBN 0-471-00255-0.
 
-\bibitem[{Gelfand et~al.(2010)Gelfand, Diggle, Fuentes, \&
-  Guttorp}]{gelfand:2010}
-Gelfand, A.~E., Diggle, P.~J., Fuentes, M., \& Guttorp, P. (2010).
-\newblock {\em Handbook of Spatial Statistics\/}.
-\newblock Boca Raton, FL: Chapman and Hall.
+\bibitem[Gelfand et~al.(2010)Gelfand, Diggle, Fuentes, and
+  Guttorp]{gelfand:2010}
+Alan~E. Gelfand, Peter~J. Diggle, Montserrat Fuentes, and Peter Guttorp.
+\newblock \emph{Handbook of Spatial Statistics}.
+\newblock Chapman and Hall, Boca Raton, FL, 2010.
 
-\bibitem[{Jr \& Diggle(2001)}]{geoR}
-Jr, P. J.~R., \& Diggle, P.~J. (2001).
+\bibitem[Jr and Diggle(2001)]{geoR}
+Paulo J.~Ribeiro Jr and Peter~J. Diggle.
 \newblock geo{R}: a package for geostatistical analysis.
-\newblock {\em R-NEWS\/}, {\em 1\/}(2), 14--18.
+\newblock \emph{R-NEWS}, 1\penalty0 (2):\penalty0 14--18, June 2001.
+\newblock URL \url{http://CRAN.R-project.org/doc/Rnews/}.
 \newblock ISSN 1609-3631.
-\urlprefix\url{http://CRAN.R-project.org/doc/Rnews/}
 
-\bibitem[{Kahle \& Wickham(2013)}]{ggmap}
-Kahle, D., \& Wickham, H. (2013).
-\newblock {\em ggmap: A package for spatial visualization with Google Maps and
-  OpenStreetMap\/}.
+\bibitem[Kahle and Wickham(2013)]{ggmap}
+David Kahle and Hadley Wickham.
+\newblock \emph{ggmap: A package for spatial visualization with Google Maps and
+  OpenStreetMap}, 2013.
+\newblock URL \url{http://CRAN.R-project.org/package=ggmap}.
 \newblock R package version 2.3.
-\urlprefix\url{http://CRAN.R-project.org/package=ggmap}
 
-\bibitem[{Stein(1999)}]{stein:1999}
-Stein, M. (1999).
-\newblock {\em Interpolation of Spatial Data\/}.
-\newblock New York, NY: Springer.
+\bibitem[of~Environmental~Quality(2015)]{groundwater}
+Oregon~Department of~Environmental~Quality.
+\newblock Water quality: Groundwater protection, 2015.
+\newblock URL \url{http://www.deq.state.or.us/wq/groundwater/basics.htm}.
 
-\bibitem[{Wickham(2009)}]{ggplot2}
-Wickham, H. (2009).
-\newblock {\em ggplot2: elegant graphics for data analysis\/}.
-\newblock Springer New York.
-\urlprefix\url{http://had.co.nz/ggplot2/book}
+\bibitem[Stein(1999)]{stein:1999}
+Michael Stein.
+\newblock \emph{Interpolation of Spatial Data}.
+\newblock Springer, New York, NY, 1999.
 
-\bibitem[{Wickham \& Francois(2014)}]{dplyr}
-Wickham, H., \& Francois, R. (2014).
-\newblock {\em dplyr: a grammar of data manipulation\/}.
+\bibitem[Wickham(2009)]{ggplot2}
+Hadley Wickham.
+\newblock \emph{ggplot2: elegant graphics for data analysis}.
+\newblock Springer New York, 2009.
+\newblock ISBN 978-0-387-98140-6.
+\newblock URL \url{http://had.co.nz/ggplot2/book}.
+
+\bibitem[Wickham and Francois(2014)]{dplyr}
+Hadley Wickham and Romain Francois.
+\newblock \emph{dplyr: a grammar of data manipulation}, 2014.
+\newblock URL \url{http://CRAN.R-project.org/package=dplyr}.
 \newblock R package version 0.2.
-\urlprefix\url{http://CRAN.R-project.org/package=dplyr}
 
-\bibitem[{Xie(2014)}]{knitr}
-Xie, Y. (2014).
+\bibitem[Xie(2014)]{knitr}
+Yihui Xie.
 \newblock knitr: A comprehensive tool for reproducible research in {R}.
-\newblock In V.~Stodden, F.~Leisch, \& R.~D. Peng (Eds.), {\em Implementing
-  Reproducible Computational Research\/}. Chapman and Hall/CRC.
+\newblock In Victoria Stodden, Friedrich Leisch, and Roger~D. Peng, editors,
+  \emph{Implementing Reproducible Computational Research}. Chapman and
+  Hall/CRC, 2014.
+\newblock URL \url{http://www.crcpress.com/product/isbn/9781466561595}.
 \newblock ISBN 978-1466561595.
-\urlprefix\url{http://www.crcpress.com/product/isbn/9781466561595}
 
 \end{thebibliography}
