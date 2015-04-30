@@ -1,15 +1,12 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces An exponential semivariogram}}{5}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces An exponential semivariogram}}{6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Depth frequency across data observations}}{11}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Data observations with recorded depth values}}{12}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Empirical variogram with 300 km maximum distance}}{14}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Empirical variogram with mat\'ern model}}{15}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Empirical variogram with exponential model}}{16}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Empirical variogram with cubic model}}{16}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Empirical variogram with spherical model}}{17}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Gridded prediction points}}{18}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Tiled prediction grid}}{18}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Prediction grid with contour regions}}{19}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Standard deviation grid}}{19}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Cropped standard deviation plot}}{20}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Empirical variogram with Mat\'ern (blue), spherical (red), and cubic (green) models.}}{15}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Close-up of gridded prediction points}}{17}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Close-up of tiled prediction grid}}{18}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Prediction grid with contour regions}}{19}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Standard deviation grid}}{20}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Cropped standard deviation plot}}{21}

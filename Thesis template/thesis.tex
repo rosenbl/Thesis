@@ -21,7 +21,7 @@
 
 \date{May 2015}
 \division{Mathematics and Natural Sciences}
-\advisor{Albert Kim}
+\advisor{Albert Y. Kim}
 
 \department{Mathematics}
 %\approvedforthe{Committee}
@@ -33,17 +33,32 @@
   \maketitle
   \frontmatter % this stuff will be roman-numbered
   \pagestyle{empty} % this removes page numbers from the frontmatter
+  
+  \onehalfspacing
 
-% Acknowledgements (Acceptable American spelling) are optional
-% So are Acknowledgments (proper English spelling)
+
     \chapter*{Acknowledgements}
-	I want to thank a few people.
+	It often seems like the most important people are also the most under-appreciated. For this reason I'd like to thank my amazing parents for their unconditional love and support during my time at Reed and always. Parents like these are hard to come by, and literally none of this would be possible without them.\\
+	
+	Second, to my patient and thoughtful adviser, Albert, for being just the right amounts of encouraging, demanding, and understanding. My frequent crises could very well have sabotaged my entire thesis, and working with Albert made the process a manageable and, yes, rewarding task. \\
+	
+	Also, to Abigail for being the most consistently supportive and loving friend anyone could ask for. You are my inspiration. \\
+	
+	Finally, to my attractive and talented friends Mark, Maren, Kiki, Will, and everyone else in the Reed community who has remained positive and determined during the rough-and-tumble of college and life. Go team.
 
-% The preface is optional
-% To remove it, comment it out or delete it.
+
     \chapter*{Preface}
-	This is an example of a thesis setup to use the reed thesis document class.
-
+    
+	Before my Senior year, I thought of the Thesis as being the encapsulating representation of the Reed experience. Every ounce of knowledge from every class seemed to coyly suggest its candidacy for a topic or focus during the final year. Of course, mathematics itself is a cumulative subject, with each theorem building upon its predecessors, albeit with branching concentrations and applications. Similarly, the process of learning mathematics is not a simple matter of memorizing formulas but of constantly building an understanding of a complex and vivid language. Because of this, I expected my thesis to epitomize my compound knowledge of my time at Reed -- a final theorem, of sorts -- and in a way it does. But ascribing such importance to a relatively small portion of my education possibly did more harm than good. Yes, some of my classmates found great joy in pouring their souls into their theses, and I wanted to be one of them, but the self-expectation to perform at the highest of my abilities usually left me suspended in a state of emotional overload. If I had simply relaxed and treated my thesis as a fun project and not an encapsulation of my abilities, both the process and the final result could have been much cleaner. \\
+	
+	This isn't to say I'm not proud of my thesis. It's easily the most extensive project I've ever worked on\footnote{with the possible exception of planning Paideia during Fall 2013}, and I learned a lot while researching and coding my topic. However, my knowledge of mathematics is almost a bi-product of my four years at Reed. My thesis too is a corollary to a couple of classes in probability and statistics I took during my Junior year, classes I did relatively poorly in but which gave me an opportunity to explore the world of data analysis and practical programming. \\
+	
+	So, to the handful of people who will ultimately read this thesis, this is not my great manifesto. This is not groundbreaking research. This does not advance any particular body of knowledge. This is an exposition of a relatively obscure but potentially useful segment of statistics. This is a (semi-) organized retelling of a story already known to many academics and researchers. However, there are a lot of pretty pictures. \\
+	
+	
+	
+	
+	
     \tableofcontents
 % if you want a list of tables, optional
     \listoftables
@@ -68,21 +83,22 @@
          \addcontentsline{toc}{chapter}{Introduction}
 	\chaptermark{Introduction}
 	\markboth{Introduction}{Introduction}
-	% The three lines above are to make sure that the headers are right, that the intro gets included in the table of contents, and that it doesn't get numbered 1 so that chapter one is 1.
+	
+Perhaps the most common statistical problem is figuring out how to extrapolate from incomplete data. Constraints such as time and resources often make gathering every piece of information difficult or impossible, so the gaps must be filled with a best guess. With statistics, it is possible to rigorously define exactly what ``best'' means, so that the only way to possibly be more confident is to collect more data. This thesis will explore a geological statistical application in spatial interpolation, in which a finite number of observations over a two-dimensional surface are quilted together as to form a complete representation of the surface. For example, if a water well is dug somewhere in the state of Oregon, it may indicate the depth at which water is first reached. This singular well gives no information about water depth a kilometer away, but a cluster of wells may provide some insight into the average depth in that area and even allow one to guess the water depth at a particular location without having to drill another well. \\
 
-% Double spacing: if you want to double space, or one and a half 
-% space, uncomment one of the following lines. You can go back to 
-% single spacing with the \singlespacing command.
-% \onehalfspacing
+This thesis is an exposition of a geostatistical method called \emph{Kriging}, formulated by statisticians to predict mineral and ore distributions and expanded by Noel. A. C. Cressie in the groundbreaking book \emph{Statistics for Spatial Data} \cite{cressie:1993}. It uses creative optimization methods to determine the best way to interpolate between points, and is far more extensive than the brief example presented here. However, this thesis provides a comprehensive overview of some of the crucial components of the Kriging method and applies it to an Oregon-sourced dataset to provide an interesting glimpse of the subterranean world. Thanks for reading.
+	
+	
+
 % \doublespacing
 	
 	
 	
     \chapter{Kriging}
     	\section{Spatial statistics}
-Kriging is a method utilized in the field of geostatistics to model spatial data. Originally developed from the South African mining industry in the 1950's \cite{cressie:1993}, kriging provided a way to predict ore-grade distributions based on a limited empirical sample. Though the name comes from mining engineer D. G. Krige, methods for optimal spatial linear prediction from Wold (1938), Kolmogorov (1941b), and Wiener (1949) all include the crucial covariance component of spatial interpolation, realizing that points closer to the prediction point should be given greater weights than further points. This is the cornerstone of the kriging method and is explored in detail in section 3. \\
+Kriging is a method utilized in the field of geostatistics to model spatial data. Originally developed from the South African mining industry in the 1950's \cite{cressie:1993}, Kriging provided a way to predict ore-grade distributions based on a limited empirical sample. Though the name comes from mining engineer D. G. Krige, previously developed methods for optimal spatial linear prediction from Wold (1938), Kolmogorov (1941b), and Wiener (1949) all include the crucial covariance component of spatial interpolation, realizing that points closer to the prediction point should be given greater weights than further points. This is the cornerstone of the Kriging method and is explored in detail in Section 3. \\
 
-Given a spatially continuous random process $Y(x)$ over some two-dimensional region $B$, a data sample $S_i: i=1, \dots, n$ is obtained from $Y$ at locations $x_i: i=1, \dots, n$. \footnote{A note on notation: here, $x$ will be used to specify a generic point in $Y$, while $\mathbf{s}$ will be used to indicate the vector of spatial coordinates or other dependent variables that make up the sample $S$.}From a practical perspective, $Y$ can be thought of as an underlying but unknown distribution of a variable of interest over $B$, be it ore-density, mineral concentrations, elevation, etc. $S$ is therefore a set of vectors containing an independent spatial component and a dependent variable or variables. Since $S$ is only a small and incomplete realization of the field $Y$, the standard geostatistical approach is to impose an underlying structure to the field consisting of a mean function $\mu(\mathbf{s})$ and a random error process with zero mean $e(\mathbf{s})$. Together these specify that 
+Given a spatially continuous random process $Y(x)$ over some two-dimensional region $B$, a data sample $S_i: i=1, \dots, n$ is obtained from $Y$ at locations $x_i: i=1, \dots, n$.\footnote{A note on notation: here, $x$ will be used to specify a generic point in $Y$, while $\mathbf{s}$ will be used to indicate the vector of spatial coordinates or other dependent variables that make up the sample $S$.}From a practical perspective, $Y$ can be thought of as an underlying but unknown distribution of a variable of interest over $B$, be it ore-density, mineral concentrations, elevation, etc. $S$ is therefore a set of vectors containing an independent spatial component and a dependent variable or variables. Since $S$ is only a small and incomplete realization of the field $Y$, the standard geostatistical approach is to impose an underlying structure to the field consisting of a mean function $\mu(\mathbf{s})$, where $\mathbf{s}$ is a coordinate vector with entries corresponding to the dimensions of $S$, and an i.i.d. random error process with zero mean $e(\mathbf{s})$. Together these specify that 
 
 \begin{align*}
 Y(\mathbf{s}) = \mu(\mathbf{s}) + e(\mathbf{s}),
@@ -91,22 +107,22 @@ Y(\mathbf{s}) = \mu(\mathbf{s}) + e(\mathbf{s}),
 where $\mu(\mathbf{s}) = E[Y(\mathbf{s})]$.
   \\
 
-The goal is to make some predictions regarding the underlying random process $Y$. Kriging at its simplest is a matter of predicting a value of $Y(x_i)$ at an arbitrary point within the region $B$. \emph{Simple kriging} assumes $Y$ to have a constant mean which is estimated from the sample mean of $S$. \emph{Ordinary kriging} uses the estimated covariance structure of $Y$ to replace the sample mean with the generalized least squares estimate of $\mu$. Finally, \emph{universal kriging} uses a trend surface model for the mean. 
+Separating $\mu(\mathbf{s})$ from $e(\mathbf{s})$ allows the variance of the error process to be calculated separately from the mean. The goal is to make some predictions regarding the underlying random process $Y$. Kriging at its simplest is a matter of predicting a value of $Y(x_i)$ at an arbitrary point within the region $B$. \emph{Simple Kriging} assumes $Y$ to have a constant mean which is estimated from the sample mean of $S$. \emph{Ordinary Kriging} uses the estimated covariance structure of $Y$ to replace the sample mean with the generalized least squares estimate of $\mu$. Finally, \emph{universal Kriging} uses a trend surface model for the mean. 
 
 \section{Estimation of the mean function}
 
-Simple, ordinary, and universal kriging all differ in their approach to estimating the mean function. Simple kriging, which assumes a constant mean, is typically dismissed by most statisticians since it usually fails to accurately describe any naturally occurring random process. Here we go over universal kriging since it is the best linear unbiased prediction model for geostatistical random fields \cite{gelfand:2010}. \\
+Simple, ordinary, and universal Kriging all differ in their approach to estimating the mean function. Simple Kriging, which assumes a constant mean, is typically dismissed by most statisticians since it usually fails to accurately describe any naturally occurring random process. Here we go over universal Kriging since it is the best linear unbiased prediction model (BLUP) for geostatistical random fields \cite{gelfand:2010}, with ``best'' meaning the function that minimizes the mean squared error of the prediction points across all possible linear models. \\
 
-The purpose of the mean function is to help provide an estimate for the residuals $e(\mathbf{s})$, given by $\hat e$. This estimate is then used to calculate the semivariogram, described in the following section, which is then used in the universal-kriging equations. The mean function is given by $\mu(\mathbf{s}) = E[Y(\bold{s})]$ and is modeled as the linear equation
+The purpose of the mean function is to help provide an estimate for the residuals $e(\mathbf{s})$, denoted by $\hat e$. This estimate is then used to calculate the semivariogram, described in the following section, which is then used in the universal-Kriging equations. The mean function is given by $\mu(\mathbf{s}) = E[Y(\bold{s})]$ and is modeled as the linear equation
 
 \begin{align*}
-\mu(\mathbf{s}; \mathbf{\beta}) = \mathbf{X}(\mathbf{s})^T \mathbf{\beta}
+\mu(\mathbf{s}; \boldsymbol{\beta}) = \mathbf{X}(\mathbf{s})^T \boldsymbol{\beta}
 \end{align*} 
 
 where $\mathbf{X}(\mathbf{s})$ is a vector of covariates observed at $\mathbf{s}$ and $\mathbf{\beta}$ is an unrestricted parameter vector. These variables could be simply latitude and longitude coordinates, but may also include such information as elevation, slope, windspeed, etc. If using only latitude and longitude, for example, a first order  trend surface model is given by
 
 \begin{align*}
-\mu(\mathbf{s}; \mathbf{\beta}) = \beta_0 + \beta_1s_1 + \beta_2s_2
+\mu(\mathbf{s}; \boldsymbol{\beta}) = \beta_0 + \beta_1s_1 + \beta_2s_2
 \end{align*} 
 
 where $\mathbf{s} = (s_1, s_2)$ are latitude and longitude. This definition, however, is not invariant to the choice of origin or orientation of the coordinate system \cite{gelfand:2010} and higher-order polynomials such as the quadratic allow for omnidirectional prediction calculations.
@@ -127,7 +143,7 @@ It is possible to stop the analysis here, but once we have the second-order depe
 
 
 \section{Covariance and the variogram}
-Part of the effectiveness of the kriging method comes from the recognition that the data from a spatial sample are correlated based on proximity. Points closer together are expected to be more highly correlated than points with greater spatial separation. The variogram, or semivariogram, plots this correlation as a function of distance, and the empirical semivariogram is the observed covariance structure of the data \cite{gelfand:2010}. Given this, the semivariogram is defined by $\gamma(x_i - x_j) = {1\over 2} \text{var} \{ e(x_i) - e(x_j) \}$, for all $x_i, x_j \in B$. Intuitively, the semivariogram provides a way to visualize the correlative effects of distance on the sampled data. For example, given a set of locations in the Cartesian plane, points with no separation distance could be expected to have zero variation in their dependent variables, while the variance between very distant points can be expected to be much higher [Fig. \ref{fig:semivariogram}]. \\
+Part of the effectiveness of the Kriging method comes from the recognition that the data from a spatial sample are correlated based on proximity. Points closer together are expected to be more highly correlated than points with greater spatial separation. The variogram, or semivariogram, plots this correlation as a function of distance, and the empirical semivariogram is the observed covariance structure of the data \cite{gelfand:2010}. Given this, the semivariogram is defined by $\gamma(x_i - x_j) = {1\over 2} \text{var} \{ e(x_i) - e(x_j) \}$, for all $x_i, x_j \in B$. Intuitively, the semivariogram provides a way to visualize the correlative effects of distance on the sampled data. For example, given a set of locations in the Cartesian plane, points with no separation distance could be expected to have zero variation in their dependent variables, while the variance between very distant points can be expected to be much higher [Fig. \ref{fig:semivariogram}]. \\
 
 \begin{figure}[h]
     \centering
@@ -136,16 +152,16 @@ Part of the effectiveness of the kriging method comes from the recognition that 
     \label{fig:semivariogram}
 \end{figure}
 
-The distance between any two points $x_i$ and $x_j$ can be can be used to define a new set $H = \{ x_i - x_j: x_i, x_j \in B \}$ for the continuous distribution of distances, or lags, in $B$. Elements of $H$ can be grouped into bins $H_1, H_2, \dots, H_k$. A representative lag for the entire bin $\mathbf{h}_u$ can be used to define the unbiased estimator of $\gamma(\bold{h}_u)$ by
+The distance between any two points $x_i$ and $x_j$ can be used to define a new set $H = \{ x_i - x_j: x_i, x_j \in B \}$ of the continuous distribution of distances, or lags, in $B$. Elements of $H$ can be grouped into bins $H_1, H_2, \dots, H_k$. A representative lag for the entire bin $\mathbf{h}_u$ can be used to define the unbiased estimator of $\gamma(\bold{h}_u)$ by
 
 \begin{align*} 
    \hat\gamma(\bold{h}_u) = { 1 \over {2n(H_u)}} \sum_{x_i - x_j \in H_u} [ \hat e(x_i) - \
    \hat e(x_j) ] ^2 \quad (u = 1, \dots, k)
 \end{align*}
 
-\noindent where $n(H_u)$ is the number of lags within the bin $H_u$ and $\hat e(x_i)$ is the residual at point $x_i$ after estimating the mean. This assumes that covariance between data points is a function of spatial distance only, and not location or other factors. This estimation also requires a subjective choice in binning -- since any exact distance, or lag, between two points is unlikely to occur frequently within a sample, it is necessary to group distances into representative intervals, or bins. A common way to do this is to make this binning choice up front, perhaps grouping the data into thirty or so bins then choosing $\mathbf{h}_u$ to be the average of all the lags that fall into a given bin. Therefore, unless the data is taken on a rectangular or polar grid, the accuracy of the semivariogram will always be dependent on the binning choices. What's the right number of bins? There's a trade-off -- more bins means that $\mathbf{h}_u$ is a better estimation of its representative bin $H_u$, yet there are fewer lags to any particular bin and a smaller sample size and therefore a greater sampling variation. This is an interesting optimization problem on its own, but the data itself may impose binning restrictions depending on the sample size and other factors. This means that there is therefore no uniquely optimized semivariogram. \\
+\noindent where $n(H_u)$ is the number of lags within the bin $H_u$ and $\hat e(x_i)$ is the residual at point $x_i$ after estimating the mean. This assumes that correlation between data points is a function of spatial distance only, and not location or other factors. This estimation also requires a subjective choice in binning -- since any exact distance, or lag, between two points is unlikely to occur frequently within a sample, it is necessary to group distances into representative intervals, or bins. A common way to do this is to make this binning choice up front, perhaps grouping the data into thirty or so bins then choosing $\mathbf{h}_u$ to be the average of all the lags that fall into a given bin. Therefore, unless the data is taken on a rectangular or polar grid, the accuracy of the semivariogram will always be dependent on the binning choices. The right number of bins depends on the specific needs of the researcher. There's a trade-off -- more bins means that $\mathbf{h}_u$ is a better estimation of its representative bin $H_u$, yet there are fewer lags to any particular bin and a smaller sample size and therefore a greater sampling variation. This is an interesting optimization problem on its own, but the data itself may impose binning restrictions depending on the sample size and other factors. This means that there is therefore no uniquely optimized semivariogram. \\
 
-Fitting a parametric model to the empirical variogram gives a convenient equation to work with for several reasons -- first, the empirical semivariogram will often have a high variance, and a smoothed version will have a lower variance that is easier to work with. Second, the empirical semivariogram usually fails to be conditionally nonpositive definite. This is a necessary condition when choosing predictors at later stages since the prediction error variance must be nonnegative at every point in the field. Third, predicting locations at lags not represented by the chosen bins requires a continuous function, something only a smoothed variogram can accomplish. This smoothed version must satisfy the following necessary and sufficient conditions to be a valid semivariogram: \\
+Fitting a smoothed parametric curve to the empirical variogram gives a convenient equation to work with for several reasons -- first, the empirical semivariogram will often have a high variance, and a smoothed version will have a lower variance that is easier to work with. Second, the empirical semivariogram usually fails to be conditionally nonpositive definite \cite{gelfand:2010}. This is a necessary condition when choosing predictors at later stages since the prediction error variance must be nonnegative at every point in the field. Third, predicting locations at lags not represented by the chosen bins requires a continuous function, something only a smoothed variogram can accomplish. This smoothed version must satisfy the following necessary and sufficient conditions to be a valid semivariogram: \\
 
 \begin{enumerate}
 
@@ -153,21 +169,21 @@ Fitting a parametric model to the empirical variogram gives a convenient equatio
 \item Evenness: $\gamma(-\bold{h}) = \gamma(\bold{h}$) for all $\bold{h}$
 \item Conditional negative definiteness: $\sum_{i=1}^n \sum_{j=1}^n a_i a_j \gamma(x_i - x_j) \leq 0$ for all $n$, all $s_1, \dots, s_n$ and all $a_1, \dots, a_n$ such that $\sum_{i=1}^n a_i = 0$
 
-A crucial assumption is that a ``true'' semivariogram exists for the entire region. By modeling the empirical semivariogram and fitting it to a curve we are guessing at the underlying model that represents the entire process. In a way, this describes the entire study of statistics in general: using incomplete data to make an educated guess about the underlying, inherently unknowable, system and adjusting to the model to minimize inaccuracies.
+A crucial assumption is that a ``true'' semivariogram exists for the entire region. By modeling the empirical semivariogram and fitting it to a curve we are guessing at the underlying model that represents the entire process. In a way, this describes the entire study of statistics in general: using incomplete data to make an educated guess about the underlying, inherently unknowable, system and adjusting the model to minimize inaccuracies.
 
 \end{enumerate}
 
 
 
 \section{Spatial Prediction: Kriging}
-Given a prediction point $\mathbf{s}_0$ \footnote{Usually this is an unknown point in $B$, but can also be a known point.}, the goal of kriging is to find a predictor $\hat Y(\mathbf{s}_0)$ for $Y(\mathbf{s}_0)$ that minimizes the prediction error variance $\text{var}[\hat Y(\mathbf{s}_0) - Y(\mathbf{s}_0)$ of all possible predictors that are both (1), linear, and  (2) unbiased:
+Given a prediction point $\mathbf{s}_0$\footnote{Usually this is an unknown point in $B$, but can also be a known point.}, the goal of Kriging is to find a predictor $\hat Y(\mathbf{s}_0)$ for $Y(\mathbf{s}_0)$ that minimizes the prediction error variance $\text{var}[\hat Y(\mathbf{s}_0) - Y(\mathbf{s}_0)]$ of all possible predictors that are both (1) linear, and  (2) unbiased:
 
 \begin{enumerate}
-\item $\hat Y(\mathbf{s}_0) = \mathbf{\lambda}^T\mathbf{Y}$, where $\mathbf{\lambda}$ is a vector of fixed constants and $\sum \lambda_i = 1$. 
-\item $E[\hat Y(\mathbf{s}_0)] = E[Y(\mathbf{s}_0)]$, or equivalently, $\mathbf{\lambda}\mathbf{X} = \mathbf{X}(\mathbf{s}_0)$.
+\item $\hat Y(\mathbf{s}_0) = \boldsymbol{\lambda}^T\mathbf{Y}$, where $\boldsymbol{\lambda}$ is a vector of fixed constants and $\sum \lambda_i = 1$. 
+\item $E[\hat Y(\mathbf{s}_0)] = E[Y(\mathbf{s}_0)]$, or equivalently, $\boldsymbol{\lambda}\mathbf{X} = \mathbf{X}(\mathbf{s}_0)$.
 \end{enumerate}
 
-Here $\lambda$ can be thought of as a vector of weights applied to the sample data. Since the value of $Y$ at $\mathbf{s}_0$ depends solely on the empirical data, optimizing this linear predictor with respect to the given restraints gives a unique solution. If $\lambda$ is a solution to this problem, then $\lambda^T\mathbf{Y}$ is a best linear unbiased predictor (BLUP) for $Y(\mathbf{s}_0)$. Here ``best'' means having the smallest mean squared error within the class of linear unbiased predictors. There are several ways of solving this. Cressie \cite{cressie:1993} gives a proof using differential calculus and Lagrange multipliers, while Zimmerman and Stein \cite{gelfand:2010} give a geometric proof. Both give the following solution:
+Here $\lambda$ can be thought of as a vector of weights applied to the sample data. Since the value of $Y$ at $\mathbf{s}_0$ depends solely on the empirical data, optimizing this linear predictor with respect to the given restraints gives a unique solution. If $\lambda$ is a solution to this problem, then $\lambda^T\mathbf{Y}$ is a best linear unbiased predictor (BLUP) for $Y(\mathbf{s}_0)$. Recall from Section 1.2 that ``best'' means having the smallest mean squared error within the class of linear unbiased predictors. There are several ways of solving this. Cressie \cite{cressie:1993} gives a proof using differential calculus and Lagrange multipliers, while Zimmerman and Stein \cite{gelfand:2010} give a geometric proof. Both give the following solution:
 
 \begin{align*}
 \hat Y(\mathbf{s}_0) = [\gamma + \mathbf{X}(\mathbf{X}^T\Gamma^{-1}\mathbf{X})^{-1}(\mathbf{x}_0 - \mathbf{X}^T\Gamma^{-1}\gamma)]^T\Gamma^{-1}\mathbf{Y}
@@ -175,64 +191,56 @@ Here $\lambda$ can be thought of as a vector of weights applied to the sample da
 
 where $\gamma = [\gamma(\mathbf{s}_1 - \mathbf{s}_0), \dots, \gamma(\mathbf{s}_n - \mathbf{s}_0)]^T$, $\Gamma$ is the $n \times n$ symmetric matrix with $ij$th element $\gamma(\mathbf{s}_i - \mathbf{s}_j)$ and $\mathbf{x}_0 = \mathbf{X}(\mathbf{s}_0)$. \\
 
-Minimizing the prediction error variance then gives us the kriging variance which can be expressed as
+From this equation and the empirical variogram it is then possible to calculate the prediction error associated with each point. Minimizing this prediction error variance then gives us the Kriging variance which can be expressed as
 
 \begin{align*}
 \sigma^2(\mathbf{s}_0) = \gamma^T\Gamma^{-1}\gamma - (\mathbf{X}^T\Gamma^{-1}\gamma - \mathbf{x}_0)^T(\mathbf{X}^T\Gamma^{-1}\mathbf{X})^{-1}(\mathbf{X}^T\Gamma^{-1}\gamma - \mathbf{x}_0).
 \end{align*}
+
+This is not to be confused with the prediction error variance itself, however, which is our confidence in the prediction due to the error term. The Kriging variance instead indicates how reliable the prediction is at a specific prediction point.
 
 
 
 \chapter{Oregon Water Data}
 
 \section{Background}
-A wide variety of data can be used for kriging, provided it meets a few necessary conditions. Most importantly, the data must be a sample from a spatially continuous random process. Since kriging provides a point prediction for any location within a region, a discrete or discontinuous random process cannot be used. \\
+A wide variety of data can be used for Kriging, provided it meets a few necessary conditions. Most importantly, the data must be a sample from a spatially continuous random process. Since Kriging provides a point prediction for any location within a region, a discrete or discontinuous random process cannot be used. \\
 
-This thesis will analyze Oregon ground water depth using data from Oregon's Water Resources Department. The data itself is a collection of logs recorded by Oregon-bonded well drillers and includes such information as the drilling date, the depth of the well, the depth of the first occurrence of water, and flow rate. The Water Resources Department uses this data to monitor water quality throughout the state of Oregon. For the purposes of this thesis, the data represents a partial sampling from a mostly continuous supply of subterranean water. By applying kriging to the available sample, it is possible to make predictions for unsampled locations in Oregon. \\
+This thesis will analyze Oregon ground water depth using data from Oregon's Water Resources Department \cite{groundwater}. The data itself is a collection of logs recorded by Oregon-bonded well drillers and includes such information as the drilling date, the depth of the well, the depth of the first occurrence of water, and flow rate. The Water Resources Department uses this data to monitor water quality throughout the state of Oregon. For the purposes of this thesis, the data represents a partial sampling from a mostly continuous supply of subterranean water. By applying Kriging to the available sample, it is possible to make predictions for unsampled locations in Oregon. \\
 
 
 \subsection{The Data}
 
-Oregon's records contain nearly 500,000 wells in the state. Since the individual contractors are responsible for recording their own observations, much of the data is incomplete. Only a handful of the observations include the latitude and longitude coordinates necessary for spatial prediction. Of this subsample, a ten-year date window was selected for the sake of accuracy. \\
+Oregon's records contain nearly 500,000 wells in the state. Since the individual contractors are responsible for recording their own observations, much of the data is incomplete. Only a handful of the observations include the latitude and longitude coordinates necessary for spatial prediction. Of this subsample, a ten-year date window from 2005 to 2015 was selected for the sake of accuracy. \\
 
-In addition to this, a few other error-correction edits were made to the data. Several lat/long locations placed points off the coast and theses were removed from the sample. The presence of these points may indicate a larger trend of recording errors among inland points, but since determining this error would be nearly impossible, the recorded values were taken for face value in the initial stages. The kriging process, however, does give some options for accounting for error and this is explored later. \\
+In addition to this, a few other error-correction edits were made to the data. Several lat/long locations placed points off the coast and these were removed from the sample. The presence of these points may indicate a larger trend of recording errors among inland points, but since determining this error would be nearly impossible, the recorded values were taken at face value in the initial stages. The Kriging process, however, does give some options for accounting for error and this is explored later. \\
 
-Another edit made to the data was removing co-located points. Several points (n=15) had the same lat/long entries but different recorded depth values. While these points could be used to calculate the variogram's nugget effect, their relatively rare frequency taken with the already established recording errors found in the sample warranted their exclusion. 
+Another edit made to the data was removing co-located points. Several points (n=15) had the same lat/long entries but different recorded depth values. While these points could be used to calculate the variogram's nugget effect (described in Section 2.2), their relatively rare frequency taken with the already established recording errors found in the sample warranted their exclusion. In addition to this, Oregon's records impose an upper bound of 1000 feet to the depth of wells drilled.
 
 \begin{table}[h]
 
 	\centering
 	
 
- \begin{tabular}{l|l|l}
+ \begin{tabular}{l|l|l|l|l|l}
 
 \hline
- Longitude &       Latitude &     Depth\\
+Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max. \\
 \hline
- Min.   :-124.5   & Min.   :42.00   & Min.   :   0.0  \\
-\hline
- 1st Qu.:-123.2   & 1st Qu.:42.94   & 1st Qu.:  30.0  \\
-\hline
- Median :-122.9   & Median :43.97   & Median :  82.0  \\
-\hline
- Mean   :-122.1   & Mean   :43.81   & Mean   : 134.4  \\
-\hline
- 3rd Qu.:-121.5   & 3rd Qu.:44.67   & 3rd Qu.: 172.0  \\
-\hline
- Max.   :-116.9   & Max.   :46.23   & Max.   :1000.0  \\
+0.0  & 30.0  & 82.0  & 134.4  & 172.0  & 1000.0  \\
 \hline
 
 
 
 \end{tabular}
 \label{data}
-\caption{Summary of groundwater data variables}
+\caption{Summary of groundwater depths across all observations}
 
 \end{table}
 
-Table \ref{data} gives a few preliminary stats on the data. The longitude and latitude variables correspond loosely with Oregon's bounding perimeter, and the depth values range from zero to 1000 feet. Figure \ref{depths} shows the frequency of recorded depths across all observations. Of particular note is the high frequency of shallower ( $<100$ feet) wells across the state. \\
+Table \ref{data} gives a few preliminary stats on the data. The longitude and latitude variables correspond loosely with Oregon's bounding perimeter, and the depth values range from zero to 1000 feet. Figure \ref{depths} shows the histogram of recorded depths. Of particular note is the high frequency of shallower ( $<100$ feet) wells across the state. \\
 
-Finally, Figure \ref{points} plots all observations over a map of Oregon, with color corresponding to depth. The clustering along the West side of the state is due to statewide population densities, with more Oregon residents living near the I-5 highway that runs North/South from Washington to California. This clustering becomes important later when we look at the predicted kriging variances and the superimposed standard deviation map.
+Finally, Figure \ref{points} plots all observations over a map of Oregon, with color corresponding to depth. The clustering along the West side of the state is due to statewide population densities, with more Oregon residents living near the I-5 highway that runs North/South from Washington to California. This clustering becomes important later when we look at the predicted Kriging variances and compare it to the the density map.
 
 \begin{figure}[h]
 	   
@@ -258,7 +266,7 @@ Finally, Figure \ref{points} plots all observations over a map of Oregon, with c
 \section{The Variogram}
 
 
-As described in section 1.3, the variogram plots the degree of correlation between points at varying distances. This correlation is then used to predict a depth at an unsampled location ($\mathbf{s}_0$) by comparing its distance to known locations to the lags associated with those distances. The degree to which the relative lags agree on the predicted value of $\mathbf{s}_0$ then determines the kriging variance. \\
+As described in section 1.3, the variogram plots the degree of correlation between points at varying distances. This correlation is then used to predict a depth at an unsampled location ($\mathbf{s}_0$) by comparing its distance to known locations to the lags, or specific variances, associated with those distances. The degree to which each lag agrees on the predicted value of $\mathbf{s}_0$ then determines the Kriging variance. \\
 
 Several choices go into the process of plotting the variogram. First, an effective range must be established in order to determine the maximum separation distance that will be used for the calculation. As shown in Table \ref{dists}, the average distance between data points is 237.8 kilometers while the maximum is 719 kilometers. For this reason, setting the maximum variogram distance to 300 kilometers as in Figure \ref{variogram} cuts out a lot of noise from distant and unrelated pairs while still including as many pairs as possible. 
 
@@ -271,7 +279,7 @@ Several choices go into the process of plotting the variogram. First, an effecti
 \hline
 Min.  & 1st Qu.  & Median  &   Mean  & 3rd Qu.  &   Max. \\
 \hline
-  0.0007 & 118.3000 & 209.1000 & 237.8000 & 330.0000 & 719.0000 \\
+  0 & 118 & 209 & 237 & 330 & 719 \\
 \hline
 
 \end{tabular}
@@ -280,9 +288,9 @@ Min.  & 1st Qu.  & Median  &   Mean  & 3rd Qu.  &   Max. \\
 \label{dists}
 
 \end{table}
-The second main choice is how many bins to choose. Again, the tradeoff between more or fewer bins is accuracy vs. variance. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins is typically used. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. \\
+The second main choice is how many bins to use. Again, the tradeoff between more or fewer bins is accuracy vs. precision. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins is typically used \cite{gelfand:2010}. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. \\
 
-The third necessary decision is whether to modify the data to represent accurate spatial distance. Since latitude and longitude are a two-dimensional projection on a curved surface, latitudes are equidistant, but the distances between longitudes varies\footnote{\cite{SpatialEpi}}. Because of this, distances between two points, $(x_1, y_1)$ and $(x_2, y_2)$, will not be accurate with respect to Euclidian distance, $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Converting to a grid-based coordinate system solves any problems this may cause. 
+The third necessary decision is whether to modify the data to represent accurate spatial distance. Since latitude and longitude are a two-dimensional projection on a curved surface, latitudes are equidistant, but the distances between longitudes varies \cite{SpatialEpi}. Because of this, distances between two points, $(x_1, y_1)$ and $(x_2, y_2)$, will not be accurate with respect to Euclidian distance, $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Converting to a grid-based coordinate system such as the Universal Transverse Mercator projection solves any problems this may cause. 
 
 
 \begin{table}[h]
@@ -344,15 +352,15 @@ Table \ref{bins} shows the total number of pairs and variances for each bin. Whe
 
 \subsection{Fitting a model}
 
-Variograms in general tend to increase roughly with distance. Because of this, the most common fitted models are ones that increase monotonically, but this is not a necessary condition. Any model must meet the three conditions from Chapter 1, namely 1) vanishing at zero, 2) evenness, and 3) conditional negative definiteness. The most common tends to be the Mat\'ern model, given by 
+Variograms in general tend to increase roughly with distance. Because of this, the most common fitted models are ones that increase monotonically, but this is not a necessary condition. As described in Chapter 1, a smoothed parametric curve provides a continuously lagged, nonpositive definite model with lower variance than the empirical variogram. Any smoothing model must meet the three conditions from Chapter 1, namely 1) vanishing at zero, 2) evenness, and 3) conditional negative definiteness. The most common tends to be the Mat\'ern model, given by 
 
 \begin{align*}
 \gamma(h) = \theta_1\left (1-{{(h/\theta_2)^\nu\kappa_{\nu}(h/\theta_2)}\over{2^{\nu-1}\Gamma(\nu)}} \right )
 \end{align*}
 
-where $\kappa_\nu$ is the modified Bessel function of the second kind of order $\nu$ (\cite{gelfand:2010}) and $(\theta_1, \theta_2)$ is a parameter vector to be optimized. \\
+where $\kappa_\nu$ is the modified Bessel function of the second kind of order $\nu$ \cite{gelfand:2010} and $(\theta_1, \theta_2)$ is a parameter vector to be optimized. \\
 
-Figure \ref{matern} shows the empirical variogram from Figure \ref{variogram} fitted with a Mat\'ern model. The fit was calculated using Weighted Least Squares (WLS) given by
+Figure \ref{var_plots} shows the empirical variogram from Figure \ref{variogram} fitted with several common models, including the Mat\'ern. The fit was calculated using Weighted Least Squares (WLS) given by
 
 \begin{align*}
 \hat{\mathbf{\theta}} = \text{argmin}\sum_{h \in H_u} {{n(\mathbf{h}_u)}\over{[\gamma(\mathbf{h}_u)]^2}}[\hat\gamma(\mathbf{h}_u) - \gamma(\mathbf{h}_u)]^2
@@ -360,89 +368,87 @@ Figure \ref{matern} shows the empirical variogram from Figure \ref{variogram} fi
 
 with all variables defined as in Chapter 1. Note that either a large $\gamma(\mathbf{h}_u)$ or a small $n(\mathbf{h}_u)$ corresponds to smaller weights. This means that larger lags are given less weight than smaller lags. \\
 
-When choosing a model, a few particular attributes play an important role. Notably the \emph{sill}, \emph{range}, and \emph{nugget} of the model will significantly affect the kriging calculation. The sill is effectually the highest point in the variogram, or the maximum variance across all pairs of data points (i.e. $\text{lim}_{h\to\infty}\gamma(h)$ provided the limit exists). For the Mat\'ern model this corresponds with $\theta_1$. The range is the smallest value of $\mathbf{h}$ for which the variogram equals its sill. The nugget is defined as $\text{lim}_{h\to0}\gamma(h)$, or the y-intercept,  and can be thought of as a measurement error that accounts for differing data values at very close or co-located points. These three attributes are generally considered just as much as closeness-of-fit when choosing a variogram model. \\
+\begin{figure}[h]
+	   
+	       \centering
+	  
+	    \includegraphics[scale=0.7]{var_plots}
+	
+	     \caption{Empirical variogram with Mat\'ern (blue), spherical (red), and cubic (green) models.}
+	 \label{var_plots}
+	\end{figure}
 
-In addition to the Mat\'ern model, several common functions include the exponential (Figure \ref{exp}), the power (Figure \ref{cubic}), and the spherical (Figure \ref{sph}). Table \ref{param} gives the optimized parameter vectors for each model as fitted to the empirical variogram from this section, with tau squared being the nugget variance, sigma squared the sill, and phi the range. Though all are good fits, the kriging step in the following section uses the spherical model, given by
+When choosing a model, a few particular attributes play an important role. Notably the \emph{sill}, \emph{range}, and \emph{nugget} of the model will significantly affect the Kriging calculation:
+
+\begin{itemize}
+\item The sill, denoted $\sigma^2$, is effectually the highest point in the variogram, or the maximum variance across all pairs of data points (i.e. $\text{lim}_{h\to\infty}\gamma(h)$ provided the limit exists). (For the Mat\'ern model this corresponds with $\theta_1$) 
+
+\item The range, denoted $\phi$, is the smallest value of $\mathbf{h}$ for which the variogram equals its sill. 
+
+\item The nugget, with variance denoted by $\tau^2$, is defined as $\text{lim}_{h\to0}\gamma(h)$, or the y-intercept,  and can be thought of as a measurement error that accounts for differing data values at very close or co-located points, even though theoretically there should be no variability. 
+
+\end{itemize}
+
+These three attributes are generally considered just as important as closeness-of-fit when choosing a variogram model. \\
+
+%In addition to the Mat\'ern model, several common functions include the exponential (Figure \ref{exp}), the power (Figure \ref{cubic}), and the spherical (Figure \ref{sph}). 
+
+Table \ref{param} gives the optimized parameter vectors for each model as fitted to the empirical variogram from this section. Though all are good fits, the Kriging step in the following section uses the spherical model, given by
 
 \begin{align*}
 \gamma(h) = \theta_1 \left ( {{3h}\over{2\theta_2}} - {{h^3}\over{2\theta_2^3}} \right )
 \end{align*}
 
-for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$.
-
-\begin{figure}[h]
+for $0 \leq h \leq \theta_2$ and 0 for $h > \theta_2$. \\
+	
+%\begin{figure}[h]
 	   
-	       \centering
+	  %     \centering
 	  
-	    \includegraphics[scale=0.5]{vario_matern}
+	 %   \includegraphics[scale=0.5]{vario_exp}
 	
-	     \caption{Empirical variogram with mat\'ern model}
-	 \label{matern}
-	\end{figure}
+	 %    \caption{Empirical variogram with exponential model}
+	% \label{exp}
+	%\end{figure}
 	
-\begin{figure}[h]
+%\begin{figure}[h]
 	   
-	       \centering
+	     %  \centering
 	  
-	    \includegraphics[scale=0.5]{vario_exp}
+	  %  \includegraphics[scale=0.5]{vario_cubic}
 	
-	     \caption{Empirical variogram with exponential model}
-	 \label{exp}
-	\end{figure}
+	  %   \caption{Empirical variogram with cubic model}
+	% \label{cubic}
+	%\end{figure}
 	
-\begin{figure}[h]
+%\begin{figure}[h]
 	   
-	       \centering
+	  %     \centering
 	  
-	    \includegraphics[scale=0.5]{vario_cubic}
+	   % \includegraphics[scale=0.5]{vario_spherical}
 	
-	     \caption{Empirical variogram with cubic model}
-	 \label{cubic}
-	\end{figure}
-	
-\begin{figure}[h]
-	   
-	       \centering
-	  
-	    \includegraphics[scale=0.5]{vario_spherical}
-	
-	     \caption{Empirical variogram with spherical model}
-	 \label{sph}
-	\end{figure}
+	 %    \caption{Empirical variogram with spherical model}
+	% \label{sph}
+	%\end{figure}
 	
 \begin{table}[h]
 
 \centering
 
-\begin{tabular}{l|l|l}
+\begin{tabular}{l|l|l|l}
 
 \hline
- Spherical variogram &&\\
-\hline
-tau squared  &  sigma squared     &   phi \\
-\hline
- 5402.2780 & 28048.6894  & 254.8803 \\
- \hline \\
+
+ Spherical & $\tau^2$: 5402 & $\sigma^2$: 28048  & $\phi$: 254 \\
+ 
  \hline
- Mat\'ern variogram&& \\
-\hline
- tau squared  & sigma squared   &    phi \\
+ 
+ 
+Mat\'ern & $\tau^2$: 6003 & $\sigma^2$: 38428  & $\phi$: 198 \\
+
  \hline
- 6003.337 & 38428.555  & 198.255 \\
- \hline \\
- \hline
- Exponential variogram & &\\
-\hline
- tau squared  & sigma squared   &    phi \\
- \hline
- 6003.337 & 38428.555  & 198.255 \\
- \hline \\
- \hline
-Cubic variogram & &\\
-\hline
- tau squared &   sigma squared    &    phi \\
- \hline
- 9260.4886 & 24906.8104  & 316.9988 \\
+ 
+ Cubic & $\tau^2$: 9260 & $\sigma^2$: 24906  & $\phi$: 316 \\
  \hline
  
  \end{tabular}
@@ -456,7 +462,7 @@ Cubic variogram & &\\
  
  Once a working model has been established for the variogram, the prediction step is relatively straightforward. Using the equation from Chapter 1, and the variogram model from the previous section, we can define a grid of points over a prediction region and use it to build a topographical map. \\
  
- Figure \ref{grid} shows a grid of points constrained to the outer perimeter of Oregon. These will be the prediction locations for the kriging function. By further dividing the region into prediction blocks rather than points as in Figure \ref{tile}, it is possible to color each block with the prediction value associated with that block. 
+ Figure \ref{grid} shows section of a grid of points constrained to the boundary of Oregon. These will be the prediction locations for the Kriging function. By further dividing the region into prediction blocks rather than points as in Figure \ref{tile}, it is possible to color each block with the prediction value associated with that block. 
  
 
  
@@ -464,9 +470,9 @@ Cubic variogram & &\\
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.5]{pred_points}
+	    \includegraphics[scale=0.9]{points_zoom}
 	
-	     \caption{Gridded prediction points}
+	     \caption{Close-up of gridded prediction points}
 	 \label{grid}
 	\end{figure}
  
@@ -474,19 +480,19 @@ Cubic variogram & &\\
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.5]{tileplot}
+	    \includegraphics[scale=0.9]{tile_zoom}
 	
-	     \caption{Tiled prediction grid}
+	     \caption{Close-up of tiled prediction grid}
 	 \label{tile}
 	\end{figure}
 	
-Finally, mapping out contours as in Figure \ref{polygon} culminates the process by giving a comprehensive visual of the groundwater throughout the state of Oregon, with lighter colors corresponding to deeper water.
+Finally, mapping out contours as in Figure \ref{polygon} culminates the process by giving a comprehensive visual estimate of the groundwater throughout the state of Oregon, with lighter colors corresponding to deeper water.
 	
 \begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.5]{polygon_plot}
+	    \includegraphics[scale=0.9]{polygon_plot}
 	
 	     \caption{Prediction grid with contour regions}
 	 \label{polygon}
@@ -504,13 +510,13 @@ Finally, mapping out contours as in Figure \ref{polygon} culminates the process 
 	
 \subsection{Prediction variance}
 
-As described in Chapter 1, kriging also provides a variance for each prediction point based on agreement between each lag of the semivariogram. Taking the square root of the variance then gives the standard deviation which can then be plotted similarly to the prediction region itself. Figure \ref{sd} maps the relative certainty of the prediction points produced by the kriging function. Comparing this to Figure \ref{points} demonstrates how the clustering along the Westmost edge of the state provided the most prediction confidence in that region, with higher variances occurring in subregions populated by fewer points. In other words, the prediction variance roughly corresponds to the inverse of the density of observations. 
+As described in Chapter 1, Kriging also provides a variance for each prediction point based on agreement between each lag of the semivariogram. Taking the square root of the variance then gives the standard deviation which can then be plotted similarly to the prediction region itself. Figure \ref{sd} maps the relative certainty of the prediction points produced by the Kriging function. Comparing this to Figure \ref{points} demonstrates how the clustering along the Westmost edge of the state provided the most prediction confidence in that region, with higher variances occurring in subregions populated by fewer points. In other words, the prediction variance roughly corresponds to the inverse of the density of observations, similarly to the standard error of the sample mean ${\sigma}\over{\sqrt{n}}$.
 	
 \begin{figure}[h]
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.5]{sd_plot}
+	    \includegraphics[scale=0.9]{sd_plot}
 	
 	     \caption{Standard deviation grid}
 	 \label{sd}
@@ -533,7 +539,7 @@ An interesting effect found in Figure \ref{sd} is the fringe effects around the 
 	   
 	       \centering
 	  
-	    \includegraphics[scale=0.5]{sd_crop}
+	    \includegraphics[scale=0.9]{sd_crop}
 	
 	     \caption{Cropped standard deviation plot}
 	 \label{sdcrop}
@@ -547,11 +553,11 @@ An interesting effect found in Figure \ref{sd} is the fringe effects around the 
 	\setcounter{chapter}{4}
 	\setcounter{section}{0}
 	
-Groundwater is an essential part of any natural ecosystem. As part of the hydrological cycle of evaporation and precipitation, groundwater represents a relatively constant measure of total water within a region because of its relative immunity to the frequent changes occurring at the surface level \cite{groundwater}. Because of this, it is an excellent candidate for spatial interpolation and prediction. By measuring and mapping the distribution of groundwater throughout the state of Oregon, water quality regulators may accurately assess the health of surface vegetation and other factors. Since groundwater is also closely related to the type of surrounding soil, with certain soil types being more or less conducive to water storage, water maps also may provide a way of determining geological factors across a region. From an even more pragmatic standpoint, kriging with well data provides useful information when digging new wells -- someone drilling near Bend, Oregon may expect to drill several hundred feet before hitting water. \\
+Groundwater is an essential part of any natural ecosystem. As part of the hydrological cycle of evaporation and precipitation, groundwater represents a relatively constant measure of total water within a region because of its relative immunity to the frequent changes occurring at the surface level \cite{groundwater}. Because of this, it is an excellent candidate for spatial interpolation and prediction. By measuring and mapping the distribution of groundwater throughout the state of Oregon, water quality regulators may accurately assess the health of surface vegetation and other factors. Since groundwater is also closely related to the type of surrounding soil, with certain soil types being more or less conducive to water storage, water maps also may provide a way of determining geological factors across a region. From an even more pragmatic standpoint, Kriging with well data provides useful information when digging new wells -- someone drilling near Bend, Oregon may expect to drill several hundred feet before hitting water. \\
 
 This data also indicates that the center of Oregon is by far the driest portion of the state. This thesis looked specifically at the depth at which water was first recorded. The resulting map, therefore, actually depicts Oregon's \emph{water table} -- a two-dimensional sheet of subterranean water. Other variables that could have been subjected to the same process include total depth or flow rate, though these are usually correlated with the water table itself and would have likely resulted in a similar map. \\
 
-Overall, kriging proved to be an effective process for analyzing this type of data. While further analyses of different variograms, alternate optimization methods, or more complex mean functions could be explored, the standard kriging process born from the South African mining industry provides an accurate and informative depiction of Oregon groundwater.
+Overall, Kriging proved to be an effective process for analyzing this type of data. While further analyses of different variograms, alternate optimization methods, or more complex mean functions could be explored, the standard Kriging process born from the South African mining industry provides an accurate and informative depiction of Oregon groundwater.
 
 
 %If you feel it necessary to include an appendix, it goes here.
@@ -563,7 +569,7 @@ Overall, kriging proved to be an effective process for analyzing this type of da
 	\markboth{Appendix}{Appendix}
 
 
-The majority of the work for this thesis was done with R, an open source software program for statistical programming. The bulk of the kriging process was completed with the help of the \textbf{geoR} package \cite{geoR} and its programmed variogram, kriging, and variance functions. For the maps and graphics, \textbf{ggmap} \cite{ggmap} and \textbf{ggplot2} \cite{ggplot2} provided a clean and functional way to visually depict the results over a map of Oregon. The original dataset from the Oregon.gov Water Resources Department contained nearly 500,000 data points and a significant amount of extraneous information. For this, the R package \textbf{dplyr} \cite{dplyr} proved to be an invaluable tool for paring down the original dataset to something manageable. Below is a partial log of many of the important steps taken to produce the results found in this thesis; the complete R code can be found at this project's GitHub repository \url{https://github.com/rosenbl/Thesis} along with the original data files and edited data. \\
+The majority of the work for this thesis was done with R, an open source software program for statistical programming. The bulk of the Kriging process was completed with the help of the \textbf{geoR} package \cite{geoR} and its programmed variogram, Kriging, and variance functions. For the maps and graphics, \textbf{ggmap} \cite{ggmap} and \textbf{ggplot2} \cite{ggplot2} provided a clean and functional way to visually depict the results over a map of Oregon. The original dataset from the Oregon.gov Water Resources Department contained nearly 500,000 data points and a significant amount of extraneous information. For this, the R package \textbf{dplyr} \cite{dplyr} proved to be an invaluable tool for paring down the original dataset to something manageable. Below is a partial log of many of the important steps taken to produce the results found in this thesis; the complete R code can be found at this project's GitHub repository \url{https://github.com/rosenbl/Thesis} (file name = kriging.R) along with the original data files and edited data. \\
 
 \begin{verbatim}
 
@@ -642,7 +648,7 @@ border <- latlong2grid(oregonborder)
 
 ins <- locations.inside(loc, border)
 
-# kriging step, provide sigmasq/phi vector from fitted variogram
+# Kriging step, provide sigmasq/phi vector from fitted variogram
 krige <- krige.conv(geogrid, loc=ins, 
 	krige=krige.control(cov.pars=c(28048.6894, 254.8803)))
 
@@ -728,7 +734,7 @@ hist(latlong$depth, main="Depths", xlab="depth", ylab="frequency")
 % replace ``plainnat'' with the style of choice. You can refer to files in the bsts or APA 
 % subfolder, e.g. 
  %\bibliographystyle{APA/apa-good}  % or
- \bibliography{kriging}
+ \bibliography{Kriging}
  % Comment the above two lines and uncomment the next line to use biblatex-chicago.
  %\printbibliography[heading=bibintoc]
 
