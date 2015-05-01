@@ -5,8 +5,8 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Data observations with recorded depth values}}{12}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Empirical variogram with 300 km maximum distance}}{14}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Empirical variogram with Mat\'ern (blue), spherical (red), and cubic (green) models.}}{15}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Close-up of gridded prediction points}}{17}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Close-up of tiled prediction grid}}{18}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Prediction grid with contour regions}}{19}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Standard deviation grid}}{20}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Cropped standard deviation plot}}{21}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Close-up of gridded prediction points}}{16}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Close-up of tiled grid with prediction values of first depth}}{17}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Prediction map with contour regions of first-water depth}}{18}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Standard deviations plot of prediction certainty at each prediction point}}{19}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Cropped standard deviation plot showing prediction certainty at prediction locations}}{20}
