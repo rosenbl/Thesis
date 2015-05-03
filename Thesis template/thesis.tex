@@ -67,7 +67,10 @@
 
 % The abstract is not required if you're writing a creative thesis (but aren't they all?)
 % If your abstract is longer than a page, there may be a formatting issue.
-    %\chapter*{Abstract}
+    \chapter*{Abstract}
+    
+    This thesis uses Ordinary Kriging to predict groundwater depths in the state of Oregon. Well data from the Oregon Department of Environmental Quality is used to calculate a covariance function across data observations. Predicted grid points are then plotted over a map of Oregon along with a corresponding variance plot. These maps indicate that the central region of Oregon has a much lower water table than the rest of the state, while prediction variances correspond with the inverse of the data density map.    
+    
 	%The preface pretty much says it all.
 	
 	%\chapter*{Dedication}
@@ -227,14 +230,15 @@ Min. & 1st Qu. & Median & Mean & 3rd Qu. & Max. \\
 
 
 \end{tabular}
-\label{data}
+
 \caption{Summary of groundwater depths across all observations}
+\label{data}
 
 \end{table}
 
 Table \ref{data} gives a few preliminary stats on the data. The longitude and latitude variables correspond loosely with Oregon's bounding perimeter, and the depth values range from zero to 1000 feet. Figure \ref{depths} shows the histogram of recorded depths. Of particular note is the high frequency of shallower ( $<100$ feet) wells across the state. 
 
-Finally, Figure \ref{points} plots all observations over a map of Oregon, with color corresponding to depth. The clustering along the West side of the state is due to statewide population densities, with more Oregon residents living near the I-5 highway that runs North/South from Washington to California. This clustering becomes important later when we look at the predicted Kriging variances and compare it to the the density map.
+Finally, Figure \ref{points} plots all observations over a map of Oregon, with color corresponding to depth. The clustering along the West side of the state is due to statewide population densities, with more Oregon residents living near the I-5 highway that runs North/South from Washington to California. This clustering becomes important later when we look at the predicted Kriging variances and compare it to the density map.
 
 \begin{figure}[h]
 	   
