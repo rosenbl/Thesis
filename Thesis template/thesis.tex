@@ -16,7 +16,7 @@
 
 % \usepackage{times} % other fonts are available like times, bookman, charter, palatino
 
-\title{Mapping Oregon Groundwater: a Geo-Statistical Analysis in Spatial Interpolation}
+\title{Mapping Oregon Groundwater: A Geo-Statistical Analysis in Spatial Interpolation}
 \author{Blake Rosenthal}
 
 \date{May 2015}
@@ -40,9 +40,15 @@
     \chapter*{Acknowledgements}
 	It often seems like the most important people are also the most under-appreciated. For this reason I'd like to thank my amazing parents for their unconditional love and support during my time at Reed and always. Parents like these are hard to come by, and literally none of this would be possible without them.
 	
-	Second, to my patient and thoughtful adviser, Albert, for being just the right amounts of encouraging, demanding, and understanding. My frequent crises could very well have sabotaged my entire thesis, and working with Albert made the process a manageable and, yes, rewarding task. 
+	To my patient and thoughtful adviser, Albert, for being just the right amounts of encouraging, demanding, and understanding. My frequent crises could very well have sabotaged my entire thesis, and working with Albert made the process a manageable and, yes, rewarding task. 
+	
+	To Jerry Shurman for his pedagogical insights and wisdom. And for helping me navigate the math department when I felt like a fish out of water. Which was most of the time.
+	
+	To Kristin Bott for her data-search wizardry.
 	
 	Also, to Abigail for being the most consistently supportive and loving friend anyone could ask for. You are my inspiration. 
+	
+	And to Heather for her steady encouragement and unwavering confidence in her big brother. The World's Best Sister award goes to you.
 	
 	Finally, to my attractive and talented friends Mark, Maren, Kiki, Will, and everyone else in the Reed community who has remained positive and determined during the rough-and-tumble of college and life. Go team.
 
@@ -89,7 +95,7 @@
 	
 Perhaps the most common statistical problem is inferring about some unknown truth using incomplete data. Constraints such as time and resources often make gathering every piece of information difficult or impossible, so the gaps must be filled with a best guess. With statistics, it is possible to rigorously define exactly what ``best'' means, so that the only way to possibly be more confident is to collect more data. This thesis will explore a geological statistical application in spatial interpolation, in which a finite number of observations over a two-dimensional surface are quilted together as to form a complete representation of the surface. For example, if a water well is dug somewhere in the state of Oregon, it may indicate the depth at which water is first reached. This singular well gives no information about water depth a kilometer away, but a cluster of wells may provide some insight into the average depth in that area and even allow one to guess the water depth at a particular location without having to drill another well. 
 
-This thesis is an exposition of a geostatistical method called \emph{Kriging}, formulated by statisticians to predict mineral and ore distributions and expanded by Noel. A. C. Cressie in the groundbreaking book \emph{Statistics for Spatial Data} \cite{cressie:1993}. It uses creative optimization methods to determine the best way to interpolate between points, and is far more extensive than the brief example presented here. However, this thesis provides a comprehensive overview of some of the crucial components of the Kriging method and applies it to an Oregon-sourced dataset to provide an interesting glimpse of the subterranean world. 
+This thesis is an exposition of a geostatistical method called \emph{Kriging}, formulated by statistical engineers to predict mineral and ore distributions and expanded by Noel. A. C. Cressie in the groundbreaking book \emph{Statistics for Spatial Data} \cite{cressie:1993}. It uses creative optimization methods to determine the best way to interpolate between points, and is far more extensive than the brief example presented here. However, this thesis provides a comprehensive overview of some of the crucial components of the Kriging method and applies it to an Oregon-sourced dataset to provide an interesting glimpse of the subterranean world. 
 	
 	
 
@@ -165,7 +171,7 @@ Fitting a smoothed parametric curve to the empirical variogram gives a convenien
 
 \item Vanishing at 0: $\gamma(\bold{0}) = 0$
 \item Evenness: $\gamma(-\bold{h}) = \gamma(\bold{h}$) for all $\bold{h}$
-\item Conditional negative definiteness: $\sum_{i=1}^n \sum_{j=1}^n a_i a_j \gamma(x_i - x_j) \leq 0$ for all $n$, all $s_1, \dots, s_n$ and all $a_1, \dots, a_n$ such that $\sum_{i=1}^n a_i = 0$
+\item Conditional negative definiteness: $\sum_{i=1}^n \sum_{j=1}^n a_i a_j \gamma(x_i - x_j) \leq 0$ for all $n$, all $x_1, \dots, x_n$ and all $a_1, \dots, a_n$ such that $\sum_{i=1}^n a_i = 0$
 
 A crucial assumption is that a ``true'' semivariogram exists for the entire region. By modeling the empirical semivariogram and fitting it to a curve we are guessing at the underlying model that represents the entire process. In a way, this describes the entire study of statistics in general: using incomplete data to make an educated guess about the underlying, inherently unknowable, system and adjusting the model to minimize inaccuracies.
 
@@ -264,7 +270,7 @@ Finally, Figure \ref{points} plots all observations over a map of Oregon, with c
 \section{The Variogram}
 
 
-As described in section 1.3, the variogram plots the degree of correlation between points at varying distances. This correlation is then used to predict a depth at an unsampled location ($\mathbf{s}_0$) by comparing its distance to known locations to the lags, or specific variances, associated with those distances. The degree to which each lag agrees on the predicted value of $\mathbf{s}_0$ then determines the Kriging variance. 
+As described in Section 1.3, the variogram plots the degree of correlation between points at varying distances. This correlation is then used to predict a depth at an unsampled location ($\mathbf{s}_0$) by comparing its distance to known locations to the lags, or specific variances, associated with those distances. The degree to which each lag agrees on the predicted value of $\mathbf{s}_0$ then determines the Kriging variance. 
 
 Several choices go into the process of plotting the variogram. First, an effective range must be established in order to determine the maximum separation distance that will be used for the calculation. As shown in Table \ref{dists}, the average distance between data points is 237.8 kilometers while the maximum is 719 kilometers. For this reason, setting the maximum variogram distance to 300 kilometers as in Figure \ref{variogram} cuts out a lot of noise from distant and unrelated pairs while still including as many pairs as possible. 
 
@@ -286,7 +292,7 @@ Min.  & 1st Qu.  & Median  &   Mean  & 3rd Qu.  &   Max. \\
 \label{dists}
 
 \end{table}
-The second main choice is how many bins to use. Again, the tradeoff between more or fewer bins is accuracy vs. precision. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins is typically used \cite{gelfand:2010}. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. 
+The second main choice is how many bins to use. Again, the tradeoff between more or fewer bins is accuracy vs. precision. More bins means a greater number of distances is represented in the variogram, and fewer bins means each bin has a lower sampling variation. In most geostatistical applications, anywhere between 10 and 30 bins are typically used \cite{gelfand:2010}. For the purposes of the Oregon groundwater data, a binning number of 15 allows for 20 kilometers of separation between lags and between 115,000 and 240,000 pairs per bin. 
 
 The third necessary decision is whether to modify the data to represent accurate spatial distance. Since latitude and longitude are a two-dimensional projection on a curved surface, latitudes are equidistant, but the distances between longitudes varies \cite{SpatialEpi}. Because of this, distances between two points, $(x_1, y_1)$ and $(x_2, y_2)$, will not be accurate with respect to Euclidian distance, $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. Converting to a grid-based coordinate system such as the Universal Transverse Mercator projection solves any problems this may cause. 
 

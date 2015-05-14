@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  1 MAY 2015 10:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  14 MAY 2015 11:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -361,12 +361,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [3]
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 118.
+d on input line 124.
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 122.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 128.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 122.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 128.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -381,12 +381,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 145.
+(amsmath)                 on input line 151.
 
 <semivariogram.png, id=78, 415.5525pt x 369.38pt>
 File: semivariogram.png Graphic file (type png)
  <use semivariogram.png>
-Package pdftex.def Info: semivariogram.png used on input line 149.
+Package pdftex.def Info: semivariogram.png used on input line 155.
 (pdftex.def)             Requested size: 346.89731pt x 308.36638pt.
 
 
@@ -396,7 +396,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6 <./semivariogram.png>] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 188--190
+Underfull \hbox (badness 10000) in paragraph at lines 194--196
 
  []
 
@@ -407,7 +407,7 @@ Chapter 2.
 ] <depth_hist.png, id=102, 608.2725pt x 471.7625pt>
 File: depth_hist.png Graphic file (type png)
  <use depth_hist.png>
-Package pdftex.def Info: depth_hist.png used on input line 247.
+Package pdftex.def Info: depth_hist.png used on input line 253.
 (pdftex.def)             Requested size: 364.96632pt x 283.05968pt.
 
 
@@ -416,10 +416,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <points_plot.pdf, id=103, 579.16376pt x 447.6725pt>
 File: points_plot.pdf Graphic file (type pdf)
  <use points_plot.pdf>
-Package pdftex.def Info: points_plot.pdf used on input line 257.
+Package pdftex.def Info: points_plot.pdf used on input line 263.
 (pdftex.def)             Requested size: 463.33163pt x 358.13847pt.
 
-Overfull \hbox (29.71164pt too wide) in paragraph at lines 257--258
+Overfull \hbox (29.71164pt too wide) in paragraph at lines 263--264
  [][] 
  []
 
@@ -433,7 +433,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Variogram.png, id=111, 608.2725pt x 514.92375pt>
 File: Variogram.png Graphic file (type png)
  <use Variogram.png>
-Package pdftex.def Info: Variogram.png used on input line 345.
+Package pdftex.def Info: Variogram.png used on input line 351.
 (pdftex.def)             Requested size: 364.96632pt x 308.95662pt.
 
 
@@ -443,25 +443,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: var_plots.pdf Graphic file (type pdf)
 
 <use var_plots.pdf>
-Package pdftex.def Info: var_plots.pdf used on input line 371.
+Package pdftex.def Info: var_plots.pdf used on input line 377.
 (pdftex.def)             Requested size: 405.41187pt x 280.34546pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 380.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 386.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 380.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 386.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
 [14 <./Variogram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 396--398
+Underfull \hbox (badness 10000) in paragraph at lines 402--404
 
  []
 
@@ -469,20 +469,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 396--398
 File: points_zoom.pdf Graphic file (type pdf)
 
 <use points_zoom.pdf>
-Package pdftex.def Info: points_zoom.pdf used on input line 468.
+Package pdftex.def Info: points_zoom.pdf used on input line 474.
 (pdftex.def)             Requested size: 532.98631pt x 384.83418pt.
 
-Overfull \hbox (99.36632pt too wide) in paragraph at lines 468--469
+Overfull \hbox (99.36632pt too wide) in paragraph at lines 474--475
  [][] 
  []
 
 <tile_zoom.pdf, id=141, 592.2125pt x 400.49625pt>
 File: tile_zoom.pdf Graphic file (type pdf)
  <use tile_zoom.pdf>
-Package pdftex.def Info: tile_zoom.pdf used on input line 478.
+Package pdftex.def Info: tile_zoom.pdf used on input line 484.
 (pdftex.def)             Requested size: 532.98631pt x 360.4433pt.
 
-Overfull \hbox (99.36632pt too wide) in paragraph at lines 478--479
+Overfull \hbox (99.36632pt too wide) in paragraph at lines 484--485
  [][] 
  []
 
@@ -492,10 +492,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <polygon_plot.pdf, id=142, 579.16376pt x 438.63875pt>
 File: polygon_plot.pdf Graphic file (type pdf)
  <use polygon_plot.pdf>
-Package pdftex.def Info: polygon_plot.pdf used on input line 490.
+Package pdftex.def Info: polygon_plot.pdf used on input line 496.
 (pdftex.def)             Requested size: 521.24257pt x 394.77121pt.
 
-Overfull \hbox (87.62257pt too wide) in paragraph at lines 490--491
+Overfull \hbox (87.62257pt too wide) in paragraph at lines 496--497
  [][] 
  []
 
@@ -509,10 +509,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: sd_plot.pdf Graphic file (type pdf)
 
 <use sd_plot.pdf>
-Package pdftex.def Info: sd_plot.pdf used on input line 514.
+Package pdftex.def Info: sd_plot.pdf used on input line 520.
 (pdftex.def)             Requested size: 521.24257pt x 401.09479pt.
 
-Overfull \hbox (87.62257pt too wide) in paragraph at lines 514--515
+Overfull \hbox (87.62257pt too wide) in paragraph at lines 520--521
  [][] 
  []
 
@@ -525,10 +525,10 @@ Underfull \vbox (badness 1490) has occurred while \output is active []
  [17 <./tile_zoom.pdf>] <sd_crop.pdf, id=167, 579.16376pt x 471.7625pt>
 File: sd_crop.pdf Graphic file (type pdf)
  <use sd_crop.pdf>
-Package pdftex.def Info: sd_crop.pdf used on input line 537.
+Package pdftex.def Info: sd_crop.pdf used on input line 543.
 (pdftex.def)             Requested size: 521.24257pt x 424.58232pt.
 
-Overfull \hbox (87.62257pt too wide) in paragraph at lines 537--538
+Overfull \hbox (87.62257pt too wide) in paragraph at lines 543--544
  [][] 
  []
 
@@ -541,7 +541,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [22
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 567--568
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
 
  []
 
@@ -552,19 +552,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25]
-Overfull \hbox (10.98022pt too wide) in paragraph at lines 716--716
+Overfull \hbox (10.98022pt too wide) in paragraph at lines 722--722
 []\OT1/cmtt/m/n/12 tile <- gm + geom_tile(data=results, alpha=0.5, aes(x, y, fi
 ll=predict))[] 
  []
 
 
-Overfull \hbox (66.55525pt too wide) in paragraph at lines 716--716
+Overfull \hbox (66.55525pt too wide) in paragraph at lines 722--722
 []                          \OT1/cmtt/m/n/12 aes(x,y, z=predict, fill=..level..
 , alpha = ..level..))[] 
  []
 
 
-Overfull \hbox (72.73026pt too wide) in paragraph at lines 716--716
+Overfull \hbox (72.73026pt too wide) in paragraph at lines 722--722
 []               \OT1/cmtt/m/n/12 aes(x,y, fill=var)) + scale_fill_gradient(low
 ="yellow", high="red")[] 
  []
@@ -604,7 +604,7 @@ r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/l
 ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (45 pages, 3035936 bytes).
+Output written on thesis.pdf (45 pages, 3036239 bytes).
 PDF statistics:
  303 PDF objects out of 1000 (max. 8388607)
  204 compressed objects within 3 object streams

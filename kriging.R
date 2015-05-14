@@ -16,11 +16,23 @@ Map <- get_map(location = "Oregon",
                maptype = "roadmap",
                zoom = 6)
 
+Portland <- get_map(location = "Portland, Oregon",
+                    color = "color",
+                    source = "google",
+                    maptype = "roadmap",
+                    zoom = 7)
+
 gm <- ggmap(Map,
       extent = "panel",
       ylab = "Latitude",
       xlab = "Longitude",
       legend = "right") 
+
+pgm <- ggmap(Portland,
+             extent = "panel",
+             ylab = "Latitude",
+             xlab = "Longitude",
+             legend = "right") 
 
 gm + geom_point(data = latlong, 
              #color = "red",
@@ -95,6 +107,7 @@ results <- data.frame(
 
 # prediction points only
 gm + geom_point(data=results, alpha=0.5, aes(x,y))
+pgm + geom_point(data=results, aes(x,y))
 
 # prediction points with predicted values
 gm + geom_point(data=results, alpha=0.7, aes(x, y, color=predict))
@@ -102,6 +115,9 @@ gm + geom_point(data=results, alpha=0.7, aes(x, y, color=predict))
 # tiled prediction map
 tile <- gm + geom_tile(data=results, alpha=0.5, aes(x, y, fill=predict))
 tile
+
+tile_zoom <- pgm + geom_tile(data=results, alpha=0.7, aes(x, y, fill=predict))
+tile_zoom
 
 # with contour plot
 contour <- tile + geom_contour(data=results, aes(x,y, z=predict))
@@ -136,3 +152,35 @@ gm + geom_tile(data=crop, alpha=0.7, aes(x,y, fill=sd)) + scale_fill_gradient(lo
 
 # some more data visualization
 hist(latlong$depth, main="Depths", xlab="depth", ylab="frequency")
+
+# condensed variogram plots
+
+fit.sph <- variofit(variogram, 
+                ini.cov.pars=c(40000,225), 
+                cov.model="spherical", 
+                fix.nugget=FALSE, 
+                max.dist=300)
+
+fit.exp <- variofit(variogram, 
+                ini.cov.pars=c(40000,225), 
+                cov.model="exponential", 
+                fix.nugget=FALSE, 
+                max.dist=300)
+
+fit.mat <- variofit(variogram, 
+                ini.cov.pars=c(40000,225), 
+                cov.model="matern", 
+                fix.nugget=FALSE, 
+                max.dist=300)
+
+fit.cube <- variofit(variogram, 
+                ini.cov.pars=c(40000,225), 
+                cov.model="cubic", 
+                fix.nugget=FALSE, 
+                max.dist=300)
+
+lines(fit.sph, col="red")
+lines(fit.mat, col="blue")
+lines(fit.cube, col="green")
+
+
